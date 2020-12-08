@@ -36,7 +36,7 @@ You can use any tag name, but notes these tag name maybe conflict with others ta
 :::
 
 # Documentation
-Please [visit here](https://ispa.io/docs/ispa-element/components/) to read full documents of iSPA Element.
+Please [visit here](https://ispa.io/docs/ispa-element/) to read full documents of iSPA Element.
 
 # Special Thanks
 Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#/), our first version has been inspired from this library.
@@ -65,6 +65,6 @@ If you like this project and want to contribute us, then you can send us a cup o
 
 | PAYPAL.ME            | MOMO App (Vietnam) |
 |:--------------------:|:------------------:|
-| <img src="./assets/qr-code-paypal.png" style="max-width: 100px;" alt="support us"> | <img src="./assets/qr-code-momo.jpg" style="max-width: 100px;" alt="support us"> |
+| <img src="https://ispa.io/docs/assets/qr-code-paypal.png" style="max-width: 100px;" alt="support us"> | <img src="https://ispa.io/docs/assets/qr-code-momo.jpg" style="max-width: 100px;" alt="support us"> |
 
 [⬆ back to top](#ispa-element-ui)
