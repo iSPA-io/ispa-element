@@ -1,0 +1,84 @@
+{
+  "name": "ispa-element",
+  "version": "0.1.0",
+  "description": "A Component Library for VueJs (Vue 3) base on Tailwind Css.",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-lib": "node build-lib && gulp copyTask",
+    "build-resources": "gulp buildResources",
+    "build-exports": "gulp buildExports",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malayvuong/ispa-element.git"
+  },
+  "keywords": [
+    "ispa-element",
+    "tailwindcss",
+    "vue3"
+  ],
+  "author": "malayvuong <malayvuong@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malayvuong/ispa-element/issues"
+  },
+  "homepage": "https://github.com/malayvuong/ispa-element#readme",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@fullcalendar/core": "4.0.2",
+    "@fullcalendar/daygrid": "4.0.1",
+    "@fullcalendar/interaction": "4.0.2",
+    "@fullcalendar/timegrid": "4.0.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "axios": "^0.19.0",
+    "babel-eslint": "^10.1.0",
+    "chart.js": "2.7.3",
+    "child_process": "^1.0.2",
+    "core-js": "^3.6.5",
+    "eslint": "^7.15.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^7.2.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-flatten": "^0.4.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglifycss": "^1.1.0",
+    "mitt": "^2.1.0",
+    "node-sass": "^4.12.0",
+    "postcss": "^8.1.14",
+    "primeflex": "2.0.0",
+    "primeicons": "4.0.0",
+    "prismjs": "^1.15.0",
+    "quill": "^1.3.7",
+    "sass-loader": "^8.0.2",
+    "tailwindcss": "^2.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
