@@ -35,7 +35,7 @@ app.mount('#app');
 You can use any tag name, but notes these tag name maybe conflict with others tag name, so make sure it's unique tag name to use.
 :::
 
-# Documentation
+# Documents
 Please [visit here](https://ispa.io/docs/ispa-element/) to read full documents of iSPA Element.
 
 # Special Thanks
@@ -67,4 +67,4 @@ If you like this project and want to contribute us, then you can send us a cup o
 |:--------------------:|:------------------:|
 | <img src="https://ispa.io/docs/assets/qr-code-paypal.png" style="max-width: 100px;" alt="support us"> | <img src="https://ispa.io/docs/assets/qr-code-momo.jpg" style="max-width: 100px;" alt="support us"> |
 
-[⬆ back to top](#ispa-element-ui)
+[⬆ back to top](#)

@@ -15,3 +15,6 @@ postcss.config.js
 vue.config.js
 build-lib.js
 .babelrc-lib
+gulpfile.js
+.jshintrc
+.editorconfig
