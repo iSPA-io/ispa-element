@@ -1,38 +1,50 @@
 <template>
-<button
-  :class="[
-    `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
-    size ? `btn-${size}` : '',
-    block ? 'btn-block' : '',
-    flat ? 'btn-flat' : '',
-    round ? 'btn-round' : '',
-    (buttonDisabled || loading) ? 'btn-disabled' : '',
-  ]"
-  :disabled="buttonDisabled || loading"
-  @click="handleClick"
->
-  <i v-if="loading" :class="[
-    iconLoading,
-    'animate-spin',
-    `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-  ]"></i>
-  <i v-if="icon" :class="[
-    icon,
-    `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-  ]"></i>
-  <slot v-if="$slots.default"></slot>
-</button>
+<span :class="[
+  (buttonDisabled || loading) ? 'is-disabled' : '',
+]">
+  <button
+    :class="[
+      `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
+      size ? `btn-${size}` : '',
+      block ? 'btn-block' : '',
+      flat ? 'btn-flat' : '',
+      round ? 'btn-round' : '',
+      (buttonDisabled || loading) ? 'btn-disabled' : '',
+    ]"
+    :disabled="buttonDisabled || loading"
+    @click="handleClick"
+  >
+    <i v-if="loading" :class="[
+      iconLoading,
+      'animate-spin',
+      `${size === 'sm' ? 'mr-1' : 'mr-2'}`
+    ]"></i>
+    <i v-if="icon" :class="[
+      icon,
+      `${size === 'sm' ? 'mr-1' : 'mr-2'}`
+    ]"></i>
+    <slot v-if="$slots.default"></slot>
+  </button>
+</span>
 </template>
 
-<script>
-export default {
+<script lang='ts'>
+import {defineComponent} from 'vue';
+import type { PropType } from 'vue';
+import { isValidSize } from '@ispa-element/utils/validator';
+
+type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'secondary' | 'default'>
+
+export default defineComponent({
   name: 'iButton',
   props: {
     /** Button type (class name) */
-    type: {type: String, default: 'default',
-      validator(val) {
+    type: {
+      type: String as IButtonType,
+      default: 'default',
+      validator: (val: string) => {
         return ['default', 'danger', 'success', 'info',
-          'primary', 'warning', 'secondary'].indexOf(val) > -1;
+          'primary', 'warning', 'secondary'].includes(val);
       },
     },
     /** Button size */
@@ -68,7 +80,7 @@ export default {
       this.$emit('click', evt);
     },
   },
-};
+});
 </script>
 
 <style>
@@ -156,6 +168,9 @@ export default {
 
 .btn-disabled {
   @apply opacity-50 pointer-events-none;
+}
+.is-disabled {
+  @apply cursor-not-allowed;
 }
 
 .btn-xs {

@@ -1,7 +1,13 @@
 # Change Log
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-### --- Version 0.1
+### --- Version 0.2
+
+#### --- Version 0.2.1
+This version update:
+* Grab all element into one file to easy to import one time
+* Added new `form`, `form-item`, `input`
+* Fixed disabled cursor for **Button**
 
 #### --- Version 0.1.9
 This version update:

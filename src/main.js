@@ -1,4 +1,6 @@
 import {createApp} from 'vue';
 import App from './App.vue';
 
-createApp(App).mount('#app');
+import iSPAElement from './index';
+
+createApp(App).use(iSPAElement).mount('#app');

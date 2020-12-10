@@ -1,22 +1,46 @@
 <template>
-<div class="container p-4">
-  <i-button>Default</i-button>
-  <i-button type="primary" plain>Primary</i-button>
-  <i-button type="success" round>Success</i-button>
-  <i-button type="secondary">Secondary</i-button>
-  <i-button type="warning">Warning</i-button>
-  <i-button type="danger">Danger</i-button>
-  <i-button type="info">Info</i-button>
+<div class="container p-4 mx-auto max-w-3xl">
+  <i-form inline>
+    <i-form-item label="Test" for="test"
+      desc="Text <b>Bold</b>"
+      >
+      <i-input v-model="value" id="test"
+        placeholder="Placeholder test" validate="is-success"
+        icon="fa fa-envelope">
+        <template #prepend>Http://</template>
+      </i-input>
+    </i-form-item>
+    <i-form-item for="best-ui" label="Test 2">
+      <i-input
+        id="best-ui"
+        placeholder="Placeholder test 2"
+        validate="is-error"
+        icon="fa fa-envelope"
+        >
+        <template #append>Http://</template>
+      </i-input>
+    </i-form-item>
+  </i-form>
+  <i-button type="danger">Danger Zone</i-button>
 </div>
 </template>
 
-<script>
-import iButton from './components/button/button.vue';
-
+<script lang='ts'>
 export default {
   name: 'App',
-  components: {
-    iButton,
+  data() {
+    return {
+      value: 'model value',
+    };
+  },
+
+  mounted() {
+    const fas = document.createElement('script');
+    fas.setAttribute('src', 'https://ispa.io/docs/assets/fas.min.js');
+    document.head.appendChild(fas);
+    const solid = document.createElement('script');
+    solid.setAttribute('src', 'https://ispa.io/docs/assets/solid.min.js');
+    document.head.appendChild(solid);
   },
 };
 </script>
