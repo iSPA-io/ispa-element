@@ -56,11 +56,11 @@ You can use any tag name, but notes these tag name maybe conflict with others ta
 Please [visit here](https://ispa.io/docs/ispa-element/) to read full documents of iSPA Element.
 
 # Special Thanks
-Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#/) and [Element UI](https://element.eleme.io/#/), our very first version has been inspired from this library.
+Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#/) and [Element UI](https://element.eleme.io/#/), our very first version has been inspired from these library.
 
 ## Milestone
 
-- [x] Button Component
+- [x] Button Component (2020-12-09)
 - [ ] Form/Input Component
 - [ ] Card Component
 - [ ] Loading Component/Directives
