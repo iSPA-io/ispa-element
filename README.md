@@ -6,6 +6,7 @@ A Component Library for VueJs (Vue 3) base on Tailwind Css.
   <a href="https://npmcharts.com/compare/ispa-element?minimal=true"><img src="https://img.shields.io/npm/dm/ispa-element.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/ispa-element"><img src="https://img.shields.io/npm/v/ispa-element.svg?sanitize=true" alt="Version"></a>
   <a href="https://m.me/malayvuong"><img src="https://img.shields.io/badge/chat-messenger-green" alt="Chat"></a>
+  [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 </p>
 
 ## Quick Start
@@ -39,7 +40,7 @@ You can use any tag name, but notes these tag name maybe conflict with others ta
 Please [visit here](https://ispa.io/docs/ispa-element/) to read full documents of iSPA Element.
 
 # Special Thanks
-Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#/), our first version has been inspired from this library.
+Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#/) and [Element UI](https://element.eleme.io/#/), our first version has been inspired from this library.
 
 ## Milestone
 

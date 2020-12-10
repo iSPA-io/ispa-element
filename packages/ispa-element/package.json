@@ -1,0 +1,20 @@
+{
+  "name": "ispa-element",
+  "version": "0.0.1",
+  "description": "Main file of iSPA Element UI",
+  "author": "Malayvuong <malayvuong@gmail.com>",
+  "homepage": "https://github.com/malayvuong/ispa-element#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malayvuong/ispa-element.git"
+  },
+  "bugs": {
+    "url": "https://github.com/malayvuong/ispa-element/issues"
+  },
+  "dependencies": {
+    "@ispa-element/button": "^0.0.0",
+    "@ispa-element/utils": "^0.0.0"
+  }
+}

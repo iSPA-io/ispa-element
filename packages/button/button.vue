@@ -1,42 +1,50 @@
 <template>
-<span :class="[
-  (buttonDisabled || loading) ? 'is-disabled' : '',
-]">
-  <button
+  <span
     :class="[
-      `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
-      size ? `btn-${size}` : '',
-      block ? 'btn-block' : '',
-      flat ? 'btn-flat' : '',
-      round ? 'btn-round' : '',
-      (buttonDisabled || loading) ? 'btn-disabled' : '',
+      (buttonDisabled || loading) ? 'is-disabled' : '',
     ]"
-    :disabled="buttonDisabled || loading"
-    @click="handleClick"
   >
-    <i v-if="loading" :class="[
-      iconLoading,
-      'animate-spin',
-      `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-    ]"></i>
-    <i v-if="icon" :class="[
-      icon,
-      `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-    ]"></i>
-    <slot v-if="$slots.default"></slot>
-  </button>
-</span>
+    <button
+      :class="[
+        `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
+        size ? `btn-${size}` : '',
+        block ? 'btn-block' : '',
+        flat ? 'btn-flat' : '',
+        round ? 'btn-round' : '',
+        (buttonDisabled || loading) ? 'btn-disabled' : '',
+      ]"
+      :disabled="buttonDisabled || loading"
+      @click="handleClick"
+    >
+      <i
+        v-if="loading"
+        :class="[
+          iconLoading,
+          'animate-spin',
+          `${size === 'sm' ? 'mr-1' : 'mr-2'}`
+        ]"
+      ></i>
+      <i
+        v-if="icon"
+        :class="[
+          icon,
+          `${size === 'sm' ? 'mr-1' : 'mr-2'}`
+        ]"
+      ></i>
+      <slot v-if="$slots.default"></slot>
+    </button>
+  </span>
 </template>
 
-<script lang='ts'>
-import {defineComponent} from 'vue';
-import type { PropType } from 'vue';
-import { isValidSize } from '@ispa-element/utils/validator';
+<script lang="ts">
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import { isValidComponentSize } from '@ispa-element/utils/validators'
 
 type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'secondary' | 'default'>
 
 export default defineComponent({
-  name: 'iButton',
+  name: 'IButton',
   props: {
     /** Button type (class name) */
     type: {
@@ -44,43 +52,44 @@ export default defineComponent({
       default: 'default',
       validator: (val: string) => {
         return ['default', 'danger', 'success', 'info',
-          'primary', 'warning', 'secondary'].includes(val);
+          'primary', 'warning', 'secondary'].includes(val)
       },
     },
     /** Button size */
-    size: {type: String, default: 'md',
-      validator(val) {
-        return ['xl', 'lg', 'md', 'sm', 'xs'].indexOf(val) > -1;
-      },
+    size: {
+      type: String,
+      default: 'md',
+      validator: isValidComponentSize,
     },
     /** Icon class name */
-    icon: {type: String, default: null},
+    icon: { type: String, default: null },
     /** Loading icon class name */
-    iconLoading: {type: String, default: 'fa fa-spin fa-spinner'},
+    iconLoading: { type: String, default: 'fa fa-spin fa-spinner' },
     /** Button block width status */
-    block: {type: Boolean, default: false},
+    block: { type: Boolean, default: false },
     /** Loading status */
-    loading: {type: Boolean, default: false},
+    loading: { type: Boolean, default: false },
     /** Disabled status */
-    disabled: {type: Boolean, default: false},
+    disabled: { type: Boolean, default: false },
     /** Simple plain class */
-    plain: {type: Boolean, default: false},
+    plain: { type: Boolean, default: false },
     /** Flat class */
-    flat: {type: [Boolean, String], default: false},
+    flat: { type: [Boolean, String], default: false },
     /** Round class */
-    round: {type: [Boolean, String], default: false},
+    round: { type: [Boolean, String], default: false },
   },
+  emits: ['click'],
   computed: {
     buttonDisabled() {
-      return this.disabled;
+      return this.disabled
     },
   },
   methods: {
     handleClick(evt) {
-      this.$emit('click', evt);
+      this.$emit('click', evt)
     },
   },
-});
+})
 </script>
 
 <style>

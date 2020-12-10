@@ -18,3 +18,13 @@ build-lib.js
 gulpfile.js
 .jshintrc
 .editorconfig
+build
+scripts
+src
+typings
+jets.config.js
+lerna.json
+tsconfig.json
+yarn.lock
+.prettierrc.js
+commitlint.config.js

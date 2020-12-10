@@ -8,6 +8,7 @@ This version update:
 * Grab all element into one file to easy to import one time
 * Added new `form`, `form-item`, `input`
 * Fixed disabled cursor for **Button**
+* Remove `&& npm run build:locale && npm run build:locale-umd && npm run build:theme`
 
 #### --- Version 0.1.9
 This version update:

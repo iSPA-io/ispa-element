@@ -1,0 +1,14 @@
+{
+  "name": "@ispa-element/utils",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.3"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^2.0.0-beta.3"
+  }
+}

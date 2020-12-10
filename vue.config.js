@@ -8,6 +8,9 @@ module.exports = {
     },
   },
   css: {
-    extract: false,
+    extract: true,
   },
-};
+  chainWebpack: config => {
+    config.resolve.symlinks(false)
+  },
+}
