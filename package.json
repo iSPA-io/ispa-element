@@ -180,10 +180,6 @@
     "url": "https://github.com/malayvuong/ispa-element/issues"
   },
   "homepage": "https://github.com/malayvuong/ispa-element#readme",
-  "files": [
-    "lib",
-    "packages"
-  ],
   "eslintConfig": {
     "root": true,
     "env": {
