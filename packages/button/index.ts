@@ -1,8 +1,8 @@
 import { App } from 'vue'
-import Button from './button.vue'
+import IButton from './button.vue'
 
-Button.install = (app: App): void => {
-  app.component(Button.name, Button)
+IButton.install = (app: App): void => {
+  app.component(IButton.name, IButton)
 }
 
-export default Button
+export default IButton

@@ -9,9 +9,9 @@
   </form>
 </template>
 
-<script>
+<script lang='ts'>
 export default {
-  name: 'Form',
+  name: 'IForm',
   props: {
     /** Label inline with field */
     inline: { type: Boolean, default: false },
@@ -25,6 +25,3 @@ export default {
   },
 }
 </script>
-<style lang="stylus">
-
-</style>

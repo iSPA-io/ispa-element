@@ -5,14 +5,14 @@ export interface InstallOptions {
   locale?: any
 }
 
-let $ELEMENT = { } as InstallOptions
+let $ISPA = { } as InstallOptions
 
 const setConfig = (option: InstallOptions): void => {
-  $ELEMENT = option
+  $ISPA = option
 }
 
 const getConfig = (key: keyof InstallOptions): unknown => {
-  return $ELEMENT[key]
+  return $ISPA[key]
 }
 
 export {

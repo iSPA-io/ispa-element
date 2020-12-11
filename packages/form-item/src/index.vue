@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import UniqueComponentId from '../utils/UniqueComponentId'
+import UniqueComponentId from '@ispa-element/utils/UniqueComponentId'
 
 export default {
   name: 'IFormItem',
@@ -40,7 +40,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus">
+<style>
 .form-group {
   @apply block mb-3;
 }

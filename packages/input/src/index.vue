@@ -20,11 +20,12 @@
       <i :class="icon"></i>
     </div>
     <input
+      ref="input"
       type="text"
       name="email"
       v-bind="attrs"
       :class="[
-        validate ? validate : '',
+        validate,
         icon ? iconAlign === 'left' ? 'pl-10' : 'pr-10' : '',
         (!$slots.prepend && !$slots.append) ? 'rounded' : (
           ($slots.prepend && $slots.append) ? 'rounded-none' :
@@ -33,10 +34,17 @@
           )
         ),
       ]"
-      class="placeholder-gray-400 block w-full
-    sm:text-sm border-gray-300
-    focus:ring-blue-100 focus:border-blue-200"
+      class="i-input"
+      :autocomplete="autocomplete"
       :placeholder="placeholder"
+      @compositionstart="handleCompositionStart"
+      @compositionupdate="handleCompositionUpdate"
+      @compositionend="handleCompositionEnd"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @change="handleChange"
+      @keydown="handleKeydown"
     >
     <div
       v-if="(iconAlign === 'right' && icon) || validate"
@@ -60,38 +68,49 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, watch, getCurrentInstance, nextTick } from 'vue'
+<script lang='ts'>
+import { defineComponent, watch, getCurrentInstance, nextTick, ref } from 'vue'
+
+import { useAttrs } from '@ispa-element/hooks'
+import type { PropType } from 'vue'
+import { isValidAlign } from '@ispa-element/utils/validators'
 
 export default defineComponent({
   name: 'IInput',
   props: {
     /** Model value (v-model) */
-    modelValue: null,
-    /** Label of Input */
-    label: { type: String, default: null },
+    modelValue: {
+      type: [String, Number],
+      default: '',
+    },
+    /** Auto complete status */
+    autocomplete: {
+      type: String,
+      default: 'off',
+      validator: (val: string) => ['on', 'off'].includes(val),
+    },
     /** Placeholder text */
     placeholder: { type: String, default: null },
-    /** Description text */
-    desc: { type: String, default: null },
     /** Validation status */
     validate: { type: String, default: null },
     /** Icon class name */
     icon: { type: String, default: null },
     /** Icon Position */
-    iconAlign: { type: String, default: 'left',
-      validator(val) {
-        return ['left', 'right'].indexOf(val) > -1
-      },
+    iconAlign: { type: String as PropType<'left' | 'right'>, default: 'left',
+      validator: isValidAlign,
     },
   },
   emits: ['update:modelValue'],
-  setup(props, ctx) {
+  setup(props) {
     const instance = getCurrentInstance()
+    const attrs = useAttrs()
+
+    const isComposing = ref(false)
+    const focused = ref(false)
 
     const iconPrefix = place => {
       const { el } = instance.vnode
-      const elList = Array.from(el.querySelectorAll(`.i-suffix-${place}`))
+      const elList: HTMLSpanElement[]  = Array.from(el.querySelectorAll(`.i-suffix-${place}`))
 
       const target = elList.find(item => item.parentNode === el)
 
@@ -113,6 +132,74 @@ export default defineComponent({
       iconPrefix('r')
     }
 
+    const handleInput = event => {
+      const { value } = event.target
+
+      // should not emit input during composition
+      // see: https://github.com/ElemeFE/element/issues/10516
+      if (isComposing.value) return
+
+      // hack for https://github.com/ElemeFE/element/issues/8548
+      // should remove the following line when we don't support IE
+      if (value === nativeInputValue.value) return
+
+      ctx.emit(UPDATE_MODEL_EVENT, value)
+      ctx.emit('input', value)
+
+      // ensure native input value is controlled
+      // see: https://github.com/ElemeFE/element/issues/12850
+      nextTick(setNativeInputValue)
+    }
+
+    const handleChange = event => {
+      ctx.emit('change', event.target.value)
+    }
+
+    const focus = () => {
+      // see: https://github.com/ElemeFE/element/issues/18573
+      nextTick(() => {
+        inputOrTextarea.value.focus()
+      })
+    }
+
+    const blur = () => {
+      inputOrTextarea.value.blur()
+    }
+
+    const handleFocus = event => {
+      focused.value = true
+      ctx.emit('focus', event)
+    }
+
+    const handleBlur = event => {
+      focused.value = false
+      ctx.emit('blur', event)
+      if (props.validateEvent) {
+        elFormItem.formItemMitt?.emit('el.form.blur', [props.modelValue])
+      }
+    }
+
+    const select = () => {
+      inputOrTextarea.value.select()
+    }
+
+    const handleCompositionStart = () => {
+      isComposing.value = true
+    }
+
+    const handleCompositionUpdate = event => {
+      const text = event.target.value
+      const lastCharacter = text[text.length - 1] || ''
+      isComposing.value = !isKorean(lastCharacter)
+    }
+
+    const handleCompositionEnd = event => {
+      if (isComposing.value) {
+        isComposing.value = false
+        handleInput(event)
+      }
+    }
+
     watch(() => {
       nextTick(() => {
         updateIcon()
@@ -120,7 +207,18 @@ export default defineComponent({
     })
 
     return {
+      attrs,
       updateIcon,
+      handleInput,
+      handleChange,
+      handleFocus,
+      handleBlur,
+      handleCompositionStart,
+      handleCompositionUpdate,
+      handleCompositionEnd,
+      select,
+      focus,
+      blur,
     }
   },
   data() {
@@ -140,7 +238,12 @@ export default defineComponent({
   },
 })
 </script>
-<style lang="stylus">
+<style>
+.i-input {
+  @apply placeholder-gray-400 block w-full
+    sm:text-sm border-gray-300
+    focus:ring-blue-100 focus:border-blue-200;
+}
 .input-group {
   @apply mt-1 rounded shadow-sm relative;
 }

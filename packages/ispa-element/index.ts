@@ -1,5 +1,10 @@
 import type { App } from 'vue'
-import Button from '@ispa-element/button'
+import IButton from '@ispa-element/button'
+import IInput from '@ispa-element/input'
+import IForm from '@ispa-element/form'
+import IFormItem from '@ispa-element/form-item'
+
+
 import { setConfig } from '@ispa-element/utils/config'
 import type { InstallOptions } from '@ispa-element/utils/config'
 
@@ -9,13 +14,14 @@ const defaultInstallOpt: InstallOptions =  {
 }
 
 const components = [
-  Button,
+  IButton, IInput, IForm,
+  IFormItem,
 ]
 
 const install = (app: App, opt: InstallOptions): void => {
   const option = Object.assign(defaultInstallOpt, opt)
   // use(option.locale)
-  app.config.globalProperties.$ELEMENT = option
+  app.config.globalProperties.$ISPA = option
   setConfig(option)
 
   components.forEach(component => {
@@ -24,7 +30,8 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-  Button,
+  IButton, IInput, IForm,
+  IFormItem,
   install,
 }
 

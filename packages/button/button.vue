@@ -5,13 +5,14 @@
     ]"
   >
     <button
+      type="button"
       :class="[
         `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
-        size ? `btn-${size}` : '',
-        block ? 'btn-block' : '',
-        flat ? 'btn-flat' : '',
-        round ? 'btn-round' : '',
-        (buttonDisabled || loading) ? 'btn-disabled' : '',
+        buttonSize ? `btn-${buttonSize}` : '',
+        block ? 'btn-block' : null,
+        flat ? 'btn-flat' : null,
+        round ? 'btn-round' : null,
+        (buttonDisabled || loading) ? 'btn-disabled' : null,
       ]"
       :disabled="buttonDisabled || loading"
       @click="handleClick"
@@ -37,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import type { PropType } from 'vue'
 import { isValidComponentSize } from '@ispa-element/utils/validators'
 
@@ -79,22 +80,29 @@ export default defineComponent({
     round: { type: [Boolean, String], default: false },
   },
   emits: ['click'],
-  computed: {
-    buttonDisabled() {
-      return this.disabled
-    },
-  },
-  methods: {
-    handleClick(evt) {
-      this.$emit('click', evt)
-    },
+  setup(props, ctx) {
+    const buttonSize = computed(() => {
+      return props.size
+    })
+    const buttonDisabled = computed(() => {
+      return props.disabled
+    })
+    const handleClick = evt => {
+      ctx.emit('click', evt)
+    }
+
+    return {
+      buttonSize,
+      buttonDisabled,
+      handleClick,
+    }
   },
 })
 </script>
 
 <style>
 .btn {
-  @apply border transition py-2 px-4 rounded font-medium text-sm
+  @apply border transition px-4 py-2 rounded font-medium text-sm
   focus:outline-none;
 }
 

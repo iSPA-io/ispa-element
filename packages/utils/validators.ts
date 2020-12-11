@@ -1,5 +1,5 @@
-export const isValidWidthUnit = (val: string) =>
-  ['px', 'rem', 'em', 'vw', '%', 'vmin', 'vmax'].some(unit =>
+export const isValidAlign = (val: string) =>
+  ['left', 'right', 'top', 'bottom'].some(unit =>
     val.endsWith(unit),
   )
 
