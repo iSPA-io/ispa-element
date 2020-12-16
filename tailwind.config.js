@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   purge: [
     './src/**/*.{vue,js,ts,jsx,tsx}',
+    './packages/**/*.{vue,js,ts,jsx,tsx}',
   ],
   presets: [],
   darkMode: 'class', // or 'media' or 'class'
@@ -28,6 +29,7 @@ module.exports = {
       yellow: colors.amber,
       green: colors.green,
       lime: colors.lime,
+      emerald: colors.emerald,
       blue: colors.blue,
       lightBlue: colors.lightBlue,
       teal: colors.teal,
@@ -742,6 +744,11 @@ module.exports = {
     'disabled',
   ],
   variants: {
+    extend: {
+      textOpacity: ['dark'],
+      opacity: ['disabled'],
+      textTransform: ['hover', 'focus'],
+    },
     accessibility: ['responsive', 'focus-within', 'focus'],
     alignContent: ['responsive'],
     alignItems: ['responsive'],

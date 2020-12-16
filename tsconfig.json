@@ -6,6 +6,7 @@
    "removeComments": true,
    "moduleResolution": "node",
    "esModuleInterop": true,
+   "resolveJsonModule": true,
    "jsx": "preserve",
    "noLib": false,
    "target": "es6",
@@ -17,5 +18,5 @@
  },
  "exclude": [
    "node_modules"
- ]
+ ],
 }

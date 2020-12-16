@@ -14,12 +14,15 @@ import {
 } from '@vue/shared'
 
 import isServer from './isServer'
-import type { AnyFunction } from './types'
+// import type { AnyFunction } from './types'
 import type { Ref } from 'vue'
 
 export type PartialCSSStyleDeclaration = Partial<
   Pick<CSSStyleDeclaration, 'transform' | 'transition' | 'animation'>
 >
+export function asWriteableComputed<T>(computedProperty: Readonly<Ref<Readonly<T>>>): Readonly<Ref<T>> {
+  return computedProperty
+}
 
 export function toObject<T>(arr: Array<T>): Record<string, T> {
   const res = {}
@@ -138,22 +141,22 @@ export const isBool = (val: unknown) => typeof val === 'boolean'
 export const isNumber = (val: unknown) => typeof val === 'number'
 export const isHTMLElement = (val: unknown) => toRawType(val).startsWith('HTML')
 
-export function rafThrottle<T extends AnyFunction<any>>(fn: T): AnyFunction<void> {
-  let locked = false
-  return function(...args: any[]) {
-    if (locked) return
-    locked = true
-    window.requestAnimationFrame(() => {
-      fn.apply(this, args)
-      locked = false
-    })
-  }
-}
+// export function rafThrottle<T extends AnyFunction<any>>(fn: T): AnyFunction<void> {
+//   let locked = false
+//   return function(...args: any[]) {
+//     if (locked) return
+//     locked = true
+//     window.requestAnimationFrame(() => {
+//       fn.apply(this, args)
+//       locked = false
+//     })
+//   }
+// }
 
-export const clearTimer = (timer: Ref<TimeoutHandle>) => {
-  clearTimeout(timer.value)
-  timer.value = null
-}
+// export const clearTimer = (timer: Ref<TimeoutHandle>) => {
+//   clearTimeout(timer.value)
+//   timer.value = null
+// }
 
 /**
  * Generating a random int in range (0, max - 1)

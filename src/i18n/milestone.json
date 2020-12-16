@@ -1,0 +1,40 @@
+{
+  "en": [
+    {
+      "name": "Button Components",
+      "checked": true
+    },
+    {
+      "name": "Form / Input Components",
+      "checked": false
+    },
+    {
+      "name": "Card Components",
+      "checked": false
+    },
+    {
+      "name": "Dropdown Components",
+      "checked": false
+    },
+    {
+      "name": "Alert Components",
+      "checked": false
+    },
+    {
+      "name": "Badge Components",
+      "checked": false
+    },
+    {
+      "name": "Nav / Tabs Components",
+      "checked": false
+    },
+    {
+      "name": "Progress Components",
+      "checked": false
+    },
+    {
+      "name": "Loading Components/Directives",
+      "checked": false
+    }
+  ]
+}

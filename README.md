@@ -18,33 +18,33 @@ npm install ispa-element
 
 Then add the library into your main js project
 ```js
-import {createApp} from 'vue';
-import iSPAElement from 'ispa-element';
+import {createApp} from 'vue'
+import iSPAElement from 'ispa-element'
 
-const app = createApp(App);
-app.use(iSPAElement).mount('#app');
+const app = createApp(App)
+app.use(iSPAElement).mount('#app')
 ```
 
 ## Module Loader
 This is the recommended way if your application uses vue-cli or has a webpack based build with vue-loader configured. Import the components as .vue files for seamless integration within your project where path of each component is available at the "import" section of a component documentation.
 ```js
-//  import ComponentName from 'ispa-element/componentname';
-impot IButton from 'ispa-element/button';
+impot { IButton } from 'ispa-element'
 ```
 
 In the next step, register the component with the tag name you'd like to use.
 ```js
 //  In app.js
-import {createApp} from 'vue';
-const app = createApp(App);
+import {createApp} from 'vue'
+const app = createApp(App)
 
-app.component('i-button', IButton);
+app.component(IButton.name, IButton)
+// OR app.component('i-button', IButton)
 
-app.mount('#app');
+app.mount('#app')
 
 //  In component.vue
 export default {
-  components: {IButton}
+  components: { IButton }
 }
 ```
 

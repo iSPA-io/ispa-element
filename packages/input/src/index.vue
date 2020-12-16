@@ -4,7 +4,8 @@
     :style="$attrs.style"
     :class="[
       $slots.prepend || $slots.append ? 'flex' : '',
-      $attrs.class
+      $attrs.class,
+      disabled ? 'is-disabled' : '',
     ]"
   >
     <span
@@ -20,10 +21,11 @@
       <i :class="icon"></i>
     </div>
     <input
+      :id="id"
       ref="input"
-      type="text"
-      name="email"
-      v-bind="attrs"
+      v-model="nativeInputValue"
+      :name="name"
+      :type="type"
       :class="[
         validate,
         icon ? iconAlign === 'left' ? 'pl-10' : 'pr-10' : '',
@@ -33,8 +35,10 @@
             $slots.prepend ? 'rounded-r' : $slots.append ? 'rounded-l' : ''
           )
         ),
+        disabled ? 'input-disabled' : '',
       ]"
       class="i-input"
+      :disabled="disabled"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
       @compositionstart="handleCompositionStart"
@@ -54,6 +58,7 @@
       <i
         v-if="validate"
         :class="[
+          'ml-1',
           validate === 'is-error' ? 'fa fa-exclamation-circle text-red-500'
           : 'fa fa-check-circle text-green-500'
         ]"
@@ -69,11 +74,11 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, watch, getCurrentInstance, nextTick, ref } from 'vue'
+import { defineComponent, computed, watch, nextTick, getCurrentInstance, ref, onMounted, onUpdated } from 'vue'
 
 import { useAttrs } from '@ispa-element/hooks'
 import type { PropType } from 'vue'
-import { isValidAlign } from '@ispa-element/utils/validators'
+import { isValidAlign, isValidInputType } from '@ispa-element/utils/validators'
 
 export default defineComponent({
   name: 'IInput',
@@ -89,6 +94,14 @@ export default defineComponent({
       default: 'off',
       validator: (val: string) => ['on', 'off'].includes(val),
     },
+    /** Type of input */
+    type: {
+      type: String as PropType<'text' | 'password' | 'email' | 'tel'>,
+      default: 'text',
+      validate: isValidInputType,
+    },
+    /** name of field */
+    name: { type: String, default: null },
     /** Placeholder text */
     placeholder: { type: String, default: null },
     /** Validation status */
@@ -99,15 +112,40 @@ export default defineComponent({
     iconAlign: { type: String as PropType<'left' | 'right'>, default: 'left',
       validator: isValidAlign,
     },
+    /** ID of input */
+    id: { type: String, default: null },
+    /** Disabled status */
+    disabled: { type: Boolean, default: false },
   },
-  emits: ['update:modelValue'],
-  setup(props) {
+  emits: ['update:modelValue', 'input', 'change', 'focus', 'blur'],
+  setup(props, ctx) {
+    /** Return this instance DOM */
     const instance = getCurrentInstance()
+    /** Get attrs - i don't know what its used for? */
     const attrs = useAttrs()
-
+    /** Composing status */
     const isComposing = ref(false)
+    /** Focus status */
     const focused = ref(false)
+    /** Input refs */
+    const input = ref(null)
+    /** Textarea refs */
+    const textarea = ref (null)
+    /** Get value of Input or Textarea */
+    const inputOrTextarea = computed({
+      get: () => input.value || textarea.value,
+      set: val => nativeInputValue.value = val,
+    })
+    /** Native input value (Inner value) */
+    const nativeInputValue = computed({
+      get: () => (props.modelValue === null || props.modelValue === undefined) ? '' : String(props.modelValue),
+      set: val => {
+        if (!inputOrTextarea.value || input.value === val) return
+        input.value = val
+      },
+    })
 
+    /** Math position of icon suffix */
     const iconPrefix = place => {
       const { el } = instance.vnode
       const elList: HTMLSpanElement[]  = Array.from(el.querySelectorAll(`.i-suffix-${place}`))
@@ -127,11 +165,12 @@ export default defineComponent({
         }
       }
     }
+    /** Process to update icon position */
     const updateIcon = () => {
       iconPrefix('l')
       iconPrefix('r')
     }
-
+    /** Handle input */
     const handleInput = event => {
       const { value } = event.target
 
@@ -143,14 +182,14 @@ export default defineComponent({
       // should remove the following line when we don't support IE
       if (value === nativeInputValue.value) return
 
-      ctx.emit(UPDATE_MODEL_EVENT, value)
+      ctx.emit('update:modelValue', value)
       ctx.emit('input', value)
 
       // ensure native input value is controlled
       // see: https://github.com/ElemeFE/element/issues/12850
-      nextTick(setNativeInputValue)
+      inputOrTextarea.value = value
     }
-
+    /** Handle change */
     const handleChange = event => {
       ctx.emit('change', event.target.value)
     }
@@ -174,9 +213,6 @@ export default defineComponent({
     const handleBlur = event => {
       focused.value = false
       ctx.emit('blur', event)
-      if (props.validateEvent) {
-        elFormItem.formItemMitt?.emit('el.form.blur', [props.modelValue])
-      }
     }
 
     const select = () => {
@@ -190,7 +226,7 @@ export default defineComponent({
     const handleCompositionUpdate = event => {
       const text = event.target.value
       const lastCharacter = text[text.length - 1] || ''
-      isComposing.value = !isKorean(lastCharacter)
+      isComposing.value = (lastCharacter)
     }
 
     const handleCompositionEnd = event => {
@@ -200,15 +236,23 @@ export default defineComponent({
       }
     }
 
-    watch(() => {
+    watch(() => props.type, () => {
       nextTick(() => {
         updateIcon()
       })
     })
 
+    onMounted(() => {
+      updateIcon()
+    })
+
+    onUpdated(() => {
+      nextTick(updateIcon)
+    })
+
     return {
+      nativeInputValue,
       attrs,
-      updateIcon,
       handleInput,
       handleChange,
       handleFocus,
@@ -221,21 +265,6 @@ export default defineComponent({
       blur,
     }
   },
-  data() {
-    return {
-
-    }
-  },
-  computed: {
-    filled() {
-      return (this.modelValue != null && this.modelValue.toString().length > 0)
-    },
-  },
-  methods: {
-    onInput(event) {
-      this.$emit('update:modelValue', event.target.value)
-    },
-  },
 })
 </script>
 <style>
@@ -247,8 +276,11 @@ export default defineComponent({
 .input-group {
   @apply mt-1 rounded shadow-sm relative;
 }
+.input-disabled {
+  @apply bg-gray-100 cursor-not-allowed;
+}
 .i-icon {
-  @apply absolute flex text-gray-400 items-center pointer-events-none inset-y-0;
+  @apply absolute flex text-gray-500 items-center pointer-events-none inset-y-0;
 }
 .i-icon-right {
   @apply right-0 pr-3;
@@ -258,7 +290,7 @@ export default defineComponent({
 }
 .i-suffix {
   @apply inline-flex items-center px-3 border border-gray-300
-  bg-gray-50 text-gray-500 sm:text-sm;
+  bg-gray-50 text-gray-500 sm:text-sm whitespace-nowrap;
 }
 .i-suffix-l {
   @apply rounded-l border-r-0;

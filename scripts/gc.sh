@@ -37,15 +37,16 @@ cat > $DIRNAME/src/index.vue <<EOF
 </template>
 <script lang='ts'>
 import { defineComponent } from 'vue'
+
 export default defineComponent({
-  name: 'El${NAME}',
+  name: 'I${NAME}',
   props: { },
   setup(props) {
     // init here
   },
 })
 </script>
-<style scoped>
+<style>
 </style>
 EOF
 
@@ -67,7 +68,7 @@ cat > $DIRNAME/package.json <<EOF
   "main": "dist/index.js",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.0.3"
+    "vue": "^3.0.4"
   },
   "devDependencies": {
     "@vue/test-utils": "^2.0.0-beta.3"

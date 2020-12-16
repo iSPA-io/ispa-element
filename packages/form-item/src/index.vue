@@ -2,15 +2,17 @@
   <div class="form-group">
     <label
       v-if="label"
-      :for="$attrs.for"
-      class="block text-md font-medium text-gray-700"
+      :for="labelFor"
+      :class="[
+        'block text-md font-medium text-gray-700',
+        labelClass
+      ]"
     >
       {{ label }}
     </label>
-    <slot :id="uId" name="default"></slot>
+    <slot name="default"></slot>
     <p
       v-if="desc"
-      id="email-description"
       class="mt-2 text-xs text-gray-500"
       v-html="desc"
     ></p>
@@ -18,27 +20,26 @@
 </template>
 
 <script>
-import UniqueComponentId from '@ispa-element/utils/UniqueComponentId'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'IFormItem',
   props: {
     /** Label of Input */
     label: { type: String, default: null },
     /** Description text */
     desc: { type: String, default: null },
-  },
-  data() {
-    return {
-
-    }
+    /** Label class name */
+    labelClass: { type: String, default: null },
+    /** Label for */
+    for: { type: String, default: null },
   },
   computed: {
-    uId() {
-      return UniqueComponentId()
+    labelFor() {
+      return this.for
     },
   },
-}
+})
 </script>
 <style>
 .form-group {

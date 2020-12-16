@@ -1,7 +1,8 @@
 <template>
   <span
     :class="[
-      (buttonDisabled || loading) ? 'is-disabled' : '',
+      block ? 'block' : 'inline-block',
+      buttonDisabled ? 'is-disabled' : '',
     ]"
   >
     <button
@@ -9,30 +10,24 @@
       :class="[
         `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
         buttonSize ? `btn-${buttonSize}` : '',
-        block ? 'btn-block' : null,
-        flat ? 'btn-flat' : null,
-        round ? 'btn-round' : null,
-        (buttonDisabled || loading) ? 'btn-disabled' : null,
+        block ? 'btn-block' : '',
+        flat ? 'btn-flat' : '',
+        round ? 'btn-round' : '',
+        buttonDisabled ? 'btn-disabled' : '',
       ]"
-      :disabled="buttonDisabled || loading"
+      :disabled="buttonDisabled"
       @click="handleClick"
     >
-      <i
-        v-if="loading"
-        :class="[
-          iconLoading,
-          'animate-spin',
-          `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-        ]"
-      ></i>
-      <i
-        v-if="icon"
-        :class="[
-          icon,
-          `${size === 'sm' ? 'mr-1' : 'mr-2'}`
-        ]"
-      ></i>
+      <span v-if="loading === true && iconLoading" :class="$slots.default ? `${size === 'sm' ? 'mr-1' : 'mr-2'}` : ''">
+        <i class="animate-spin" :class="iconLoading"></i>
+      </span>
+      <span v-if="!loading && icon && iconAlign === 'left'" :class="$slots.default ? `${size === 'sm' ? 'mr-1' : 'mr-2'}` : ''">
+        <i :class="icon"></i>
+      </span>
       <slot v-if="$slots.default"></slot>
+      <span v-if="!loading && icon && iconAlign === 'right'" :class="$slots.default ? `${size === 'sm' ? 'ml-1' : 'ml-2'}` : ''">
+        <i :class="icon"></i>
+      </span>
     </button>
   </span>
 </template>
@@ -40,7 +35,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import type { PropType } from 'vue'
-import { isValidComponentSize } from '@ispa-element/utils/validators'
+import { isValidComponentSize, isValidAlign } from '@ispa-element/utils/validators'
 
 type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'secondary' | 'default'>
 
@@ -64,6 +59,10 @@ export default defineComponent({
     },
     /** Icon class name */
     icon: { type: String, default: null },
+    /** Icon Position */
+    iconAlign: { type: String as PropType<'left' | 'right'>, default: 'left',
+      validator: isValidAlign,
+    },
     /** Loading icon class name */
     iconLoading: { type: String, default: 'fa fa-spin fa-spinner' },
     /** Button block width status */
@@ -84,8 +83,9 @@ export default defineComponent({
     const buttonSize = computed(() => {
       return props.size
     })
+
     const buttonDisabled = computed(() => {
-      return props.disabled
+      return props.disabled || props.loading
     })
     const handleClick = evt => {
       ctx.emit('click', evt)

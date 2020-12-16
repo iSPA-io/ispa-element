@@ -1,8 +1,8 @@
 import type { App } from 'vue'
 import IButton from '@ispa-element/button'
-import IInput from '@ispa-element/input'
 import IForm from '@ispa-element/form'
 import IFormItem from '@ispa-element/form-item'
+import IInput from '@ispa-element/input'
 
 
 import { setConfig } from '@ispa-element/utils/config'
@@ -14,8 +14,8 @@ const defaultInstallOpt: InstallOptions =  {
 }
 
 const components = [
-  IButton, IInput, IForm,
-  IFormItem,
+  IButton,
+  IInput, IForm, IFormItem,
 ]
 
 const install = (app: App, opt: InstallOptions): void => {
@@ -30,8 +30,8 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-  IButton, IInput, IForm,
-  IFormItem,
+  IButton,
+  IInput, IForm, IFormItem,
   install,
 }
 
