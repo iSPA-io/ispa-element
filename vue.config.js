@@ -1,6 +1,6 @@
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/docs/ispa-element/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   productionSourceMap: true,
   lintOnSave: false,
   configureWebpack: {

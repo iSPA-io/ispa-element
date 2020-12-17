@@ -1,7 +1,7 @@
 {
   "name": "ispa-element",
-  "private": false,
-  "version": "0.3.3",
+  "private": true,
+  "version": "0.3.3-README",
   "scripts": {
     "serve": "vue-cli-service serve --watch --hot",
     "build": "vue-cli-service build --dest dist",
