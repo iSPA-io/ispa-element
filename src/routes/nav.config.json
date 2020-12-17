@@ -1,0 +1,49 @@
+{
+  "en": [
+    {
+      "path": "/getting-start",
+      "name": "Getting Start"
+    },
+    {
+      "name": "Basic",
+      "children": [
+        {
+          "path": "/button",
+          "name": "Button"
+        }
+      ]
+    },
+    {
+      "name": "Form Input",
+      "children": [
+        {
+          "path": "/form",
+          "name": "Form"
+        },
+        {
+          "path": "/form-item",
+          "name": "Form Item"
+        },
+        {
+          "path": "/input",
+          "name": "Input"
+        }
+      ]
+    }
+  ],
+  "vi": [
+    {
+      "name": "Component",
+      "children": [
+        {
+          "path": "/getting-start",
+          "name": "Bắt đầu"
+        },
+        {
+          "path": "/button",
+          "name": "Thẻ Button"
+        }
+      ]
+    }
+  ]
+}
