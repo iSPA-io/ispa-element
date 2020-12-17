@@ -37,7 +37,21 @@ const runBuild = async () => {
         typescript({
           tsconfigOverride: {
             compilerOptions: {
-              declaration: false,
+              "module": "ESNext",
+              "declaration": true,
+              "noImplicitAny": false,
+              "removeComments": true,
+              "moduleResolution": "node",
+              "esModuleInterop": true,
+              "resolveJsonModule": true,
+              "jsx": "preserve",
+              "noLib": false,
+              "target": "es6",
+              "sourceMap": true,
+              "lib": [
+                "ESNext", "DOM"
+              ],
+              "allowSyntheticDefaultImports": true
             },
             'exclude': [
               'node_modules',

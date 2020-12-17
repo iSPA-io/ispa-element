@@ -17,6 +17,10 @@
       "name": "Form Input",
       "children": [
         {
+          "path": "/form",
+          "name": "Form"
+        },
+        {
           "path": "/form-item",
           "name": "Form Item"
         },

@@ -1,10 +1,10 @@
 <template>
   <div
     class="input-group"
-    :style="$attrs.style"
+    :style="attrs.style"
     :class="[
       $slots.prepend || $slots.append ? 'flex' : '',
-      $attrs.class,
+      attrs.class,
       disabled ? 'is-disabled' : '',
     ]"
   >
@@ -21,7 +21,7 @@
       <i :class="icon"></i>
     </div>
     <input
-      :id="id"
+      :id="attrs.id || id"
       ref="input"
       v-model="nativeInputValue"
       :name="name"
@@ -39,6 +39,7 @@
       ]"
       class="i-input"
       :disabled="disabled"
+      :required="isRequired || required"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
       @compositionstart="handleCompositionStart"
@@ -76,7 +77,6 @@
 <script lang='ts'>
 import { defineComponent, computed, watch, nextTick, getCurrentInstance, ref, onMounted, onUpdated } from 'vue'
 
-import { useAttrs } from '@ispa-element/hooks'
 import type { PropType } from 'vue'
 import { isValidAlign, isValidInputType } from '@ispa-element/utils/validators'
 
@@ -96,7 +96,7 @@ export default defineComponent({
     },
     /** Type of input */
     type: {
-      type: String as PropType<'text' | 'password' | 'email' | 'tel'>,
+      type: String as PropType<'text' | 'password' | 'email' | 'tel' | 'number'>,
       default: 'text',
       validate: isValidInputType,
     },
@@ -116,13 +116,15 @@ export default defineComponent({
     id: { type: String, default: null },
     /** Disabled status */
     disabled: { type: Boolean, default: false },
+    /** Required Status */
+    required: { type: Boolean, default: false },
   },
   emits: ['update:modelValue', 'input', 'change', 'focus', 'blur'],
   setup(props, ctx) {
     /** Return this instance DOM */
     const instance = getCurrentInstance()
-    /** Get attrs - i don't know what its used for? */
-    const attrs = useAttrs()
+    /** Return button attributes and bind to */
+    const attrs = ctx.attrs
     /** Composing status */
     const isComposing = ref(false)
     /** Focus status */
@@ -131,6 +133,8 @@ export default defineComponent({
     const input = ref(null)
     /** Textarea refs */
     const textarea = ref (null)
+    /** Required status */
+    const isRequired = ref(false)
     /** Get value of Input or Textarea */
     const inputOrTextarea = computed({
       get: () => input.value || textarea.value,
@@ -252,6 +256,7 @@ export default defineComponent({
 
     return {
       nativeInputValue,
+      isRequired,
       attrs,
       handleInput,
       handleChange,

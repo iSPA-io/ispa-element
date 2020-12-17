@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, nextTick } from 'vue'
 
 import App from './app.vue'
 
@@ -23,5 +23,14 @@ app.use(VuePrism)
 
 app.use(iSPAElement)
   .use(router)
+
+router.isReady().then(() => {
+
+  router.afterEach(async route => {
+    await nextTick()
+    document.title = (route.meta.title ? route.meta.title + ' | ' : '') + 'iSPA Element UI'
+  })
+
+})
 
 app.mount('#app')

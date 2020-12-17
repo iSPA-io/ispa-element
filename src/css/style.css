@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .ispa-content {
-  @apply text-blueGray-500 flex-1 relative z-0 focus:outline-none;
+  @apply text-blueGray-500 flex-1 relative z-0 pb-12 focus:outline-none;
 }
 .ispa-content h1, .ispa-content h2, .ispa-content h3, .ispa-content h4 {
   @apply mt-6 font-semibold mb-4 pb-1;
@@ -99,7 +99,7 @@ table {
   @apply my-4;
 }
 td, th {
-  @apply border px-4 py-2 text-sm;
+  @apply border-b px-3 py-2 text-sm;
 }
 th {
   @apply text-emerald-600;

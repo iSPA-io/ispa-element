@@ -3,7 +3,9 @@
     <h1>Getting Start</h1>
     <div class="tips tips-warning">
       <p>Warning</p>
-      <p>This library only use for VueJS version 3.x and Tailwind Css. All icons example on this page use from Font Awesome Pro 5.</p>
+      <p>This library only use for VueJS version 3.x and Tailwind Css.</p>
+      <p>All icons example on this page use from Font Awesome Pro 5.</p>
+      <p>All class name example on this page use class name based on Tailwind Css. We not generate too much css style for our element that make you can easily custom the element.</p>
     </div>
     <p>To use this package, open up your terminal in the desired directory and run the following command</p>
     <pre class="ispa-code language-sh"><code>{{ `npm install ispa-element` }}</code></pre>

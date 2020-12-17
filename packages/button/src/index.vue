@@ -6,6 +6,7 @@
     ]"
   >
     <button
+      v-bind="attrs"
       type="button"
       :class="[
         `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
@@ -79,19 +80,21 @@ export default defineComponent({
     round: { type: [Boolean, String], default: false },
   },
   emits: ['click'],
-  setup(props, ctx) {
+  setup(props, { attrs, emit }) {
+    /** Return button size */
     const buttonSize = computed(() => {
       return props.size
     })
-
     const buttonDisabled = computed(() => {
       return props.disabled || props.loading
     })
+
     const handleClick = evt => {
-      ctx.emit('click', evt)
+      emit('click', evt)
     }
 
     return {
+      attrs,
       buttonSize,
       buttonDisabled,
       handleClick,

@@ -41,6 +41,7 @@ export default {
       const solid = document.createElement('script')
       solid.setAttribute('src', 'https://ispa.io/docs/assets/solid.min.js')
       document.head.appendChild(fas).appendChild(solid)
+      document.title = 'iSPA Element UI'
     })
   },
 }

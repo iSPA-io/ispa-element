@@ -3,6 +3,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### --- Version 0.2
 
+#### --- Version 0.3.3
+This version update:
+* Changed label style on `form-item` element
+* Added new `label slot` on `form-item` element and prepair data structure for form validation
+* Added new element `form`
+* Added new attribute `required` on `input` element
+* Fixed `attrs` target on childrend element
+
 #### --- Version 0.2.1
 This version update:
 * Grab all element into one file to easy to import one time

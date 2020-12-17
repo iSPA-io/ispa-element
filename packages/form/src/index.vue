@@ -1,16 +1,19 @@
 <template>
   <form
+    v-bind="attrs"
     action=""
     :class="[
       inline ? 'form-inline' : ''
     ]"
   >
-    <slot :inline="inline"></slot>
+    <slot></slot>
   </form>
 </template>
 
 <script lang='ts'>
-export default {
+import { defineComponent, toRefs, reactive, provide } from 'vue'
+
+export default defineComponent({
   name: 'IForm',
   props: {
     /** Label inline with field */
@@ -18,10 +21,15 @@ export default {
     /** Item display inline */
     itemInline: { type: Boolean, default: false },
   },
-  data() {
-    return {
+  setup(props, { attrs, emit }) {
+    const iForm = reactive({
+      ...toRefs(props),
+      emit,
+    })
 
-    }
+    provide('iForm', iForm)
+
+    return { attrs }
   },
-}
+})
 </script>

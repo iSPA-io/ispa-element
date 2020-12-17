@@ -28,6 +28,23 @@ export default [
       }),
       typescript({
         tsconfigOverride: {
+          compilerOptions: {
+            module: 'ESNext',
+            declaration: true,
+            noImplicitAny: false,
+            removeComments: true,
+            moduleResolution: 'node',
+            esModuleInterop: true,
+            resolveJsonModule: true,
+            jsx: 'preserve',
+            noLib: false,
+            target: 'es6',
+            sourceMap: true,
+            lib: [
+              'ESNext', 'DOM',
+            ],
+            allowSyntheticDefaultImports: true,
+          },
           'include': [
             'packages/**/*',
             'typings/vue-shim.d.ts',

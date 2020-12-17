@@ -1,14 +1,14 @@
 <template>
-  <div class="form-group">
+  <div class="form-group" v-bind="attrs">
     <label
-      v-if="label"
+      v-if="label || slots.label"
       :for="labelFor"
       :class="[
-        'block text-md font-medium text-gray-700',
         labelClass
       ]"
     >
-      {{ label }}
+      <template v-if="!slots.label">{{ label }}</template>
+      <slot v-else name="label"></slot>
     </label>
     <slot name="default"></slot>
     <p
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 
 export default defineComponent({
   name: 'IFormItem',
@@ -34,6 +34,12 @@ export default defineComponent({
     /** Label for */
     for: { type: String, default: null },
   },
+  setup(props, { attrs, emit, slots }) {
+    const iForm = inject(iForm, {})
+
+
+    return { attrs, slots }
+  },
   computed: {
     labelFor() {
       return this.for
@@ -44,5 +50,8 @@ export default defineComponent({
 <style>
 .form-group {
   @apply block mb-3;
+}
+.form-group > label {
+  @apply block text-base font-medium text-gray-700;
 }
 </style>

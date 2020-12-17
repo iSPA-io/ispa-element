@@ -13,14 +13,17 @@
     <h2>Basic Usage</h2>
     <p>Let's put a simple input inside your element</p>
     <div class="demo">
-      <p>Demo text: <b>{{ demoText }}</b></p>
-      <i-input class="max-w-lg" :model-value="demoText" @update:modelValue="demoText = $event" placeholder="Placeholder text" />
+      <p>
+        Demo text: <b>{{ demoText }}</b>
+      </p>
+      <i-input v-model="demoText" class="max-w-lg" placeholder="Placeholder text" />
     </div>
-    <pre class="ispa-code language-html"><code>{{`<i-input :model-value="input" @update:modelValue="input = $event" />`}}</code></pre>
+    <pre class="ispa-code language-html"><code>{{`<i-input v-model="demoText" placeholder="Placeholder text" />
+<i-input :model-value="demoText" @update:modelValue="demoText = $event" />`}}</code></pre>
     <div class="tips tips-warning">
       <p>Please Note</p>
       <p>
-        Please note that <code>v-model</code> has been changed some stuff from Vue2 to Vue3, in this input you must use <code>@update:modelValue="input = $event"</code> in this element, for more information please click <a href="https://v3.vuejs.org/guide/migration/v-model.html#_3-x-syntax" target="_blank">here</a> to read.
+        Please note that <code>v-model</code> has been changed some stuff from Vue2 to Vue3, in this input you must use <code>@update:modelValue="input = $event"</code> when you use <code>model-value</code>, for more information please click <a href="https://v3.vuejs.org/guide/migration/v-model.html#_3-x-syntax" target="_blank">here</a> to read.
       </p>
     </div>
 
@@ -71,7 +74,7 @@
 </i-input>`}}</code></pre>
 
 
-    <h2>Attributes</h2>
+    <h2>Input Attributes</h2>
     <table>
       <thead><tr><th style="text-align: left;">Attribute</th> <th style="text-align: left;">Description</th> <th style="text-align: left;">Type</th> <th style="text-align: left;">Accepted values</th> <th style="text-align: left;">Default</th></tr></thead>
       <tbody>
@@ -80,14 +83,135 @@
           <td style="text-align: left;">input type</td>
           <td style="text-align: left;">string</td>
           <td style="text-align: left;">
-            <code>text</code> / <code>email</code> / <code>tel</code> / <code>password</code>
+            <code>text</code> / <code>email</code> / <code>tel</code> / <code>password</code> / <code>number</code>
           </td>
           <td style="text-align: left;"><code>text</code></td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">model-value</td>
+          <td style="text-align: left;">input binding value</td>
+          <td style="text-align: left;">string / number</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">—</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">placeholder</td>
+          <td style="text-align: left;">placeholder of Input</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">—</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">autocomplete</td>
+          <td style="text-align: left;">same as <code>autocomplete</code> in native input</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;"><code>on</code> / <code>off</code></td>
+          <td style="text-align: left;"><code>off</code></td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">name</td>
+          <td style="text-align: left;">same as <code>name</code> in native input</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">—</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">validate</td>
+          <td style="text-align: left;">validate status class name</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;"><code>is-success</code> / <code>is-error</code></td>
+          <td style="text-align: left;">—</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">icon</td>
+          <td style="text-align: left;">icon class name</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">—</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">icon-align</td>
+          <td style="text-align: left;">icon align class name</td>
+          <td style="text-align: left;">string</td>
+          <td style="text-align: left;"><code>left</code> / <code>right</code></td>
+          <td style="text-align: left;"><code>left</code></td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">disabled</td>
+          <td style="text-align: left;">disabled status</td>
+          <td style="text-align: left;">boolean</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">false</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">required</td>
+          <td style="text-align: left;">required status</td>
+          <td style="text-align: left;">boolean</td>
+          <td style="text-align: left;">—</td>
+          <td style="text-align: left;">false</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>Events method</h2>
+
+    <h2>Input slots</h2>
+    <table class="w-full">
+      <thead>
+        <tr>
+          <th style="text-align: left;">Name</th>
+          <th style="text-align: left;">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left;">append</td>
+          <td style="text-align: left;">content to prepend before Input</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">prepend</td>
+          <td style="text-align: left;">content to append after Input</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h2>Input Events</h2>
+    <table class="w-full">
+      <thead>
+        <tr>
+          <th style="text-align: left;">Name</th>
+          <th style="text-align: left;">Description</th>
+          <th style="text-align: left;">Parameters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left;">blur</td>
+          <td style="text-align: left;">triggers when Input blurs</td>
+          <td>(event: Event)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">focus</td>
+          <td style="text-align: left;">triggers when Input focuses</td>
+          <td>(event: Event)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">change</td>
+          <td style="text-align: left;">triggers only when the input box loses focus or the user presses Enter</td>
+          <td>(value: string | number)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">input</td>
+          <td style="text-align: left;">triggers when the input value change</td>
+          <td>(value: string | number)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">clear</td>
+          <td style="text-align: left;">triggers when the input cleared by clicking the clear button</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -98,7 +222,7 @@ export default defineComponent({
   name: 'Input',
   data() {
     return {
-      demoText: 'Let\'s edit this text',
+      demoText: 'Let\'s edit this text', isBlur: false,
       code1: `//  app.js
 import { IInput } from 'ispa-element'
 
@@ -110,6 +234,11 @@ export default {
   components: { IInput },
 }`,
     }
+  },
+  methods: {
+    testBlur() {
+      this.isBlur = !this.isBlur
+    },
   },
 })
 </script>

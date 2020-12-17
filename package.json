@@ -1,9 +1,9 @@
 {
   "name": "ispa-element",
-  "private": true,
-  "version": "0.2.6",
+  "private": false,
+  "version": "0.3.3",
   "scripts": {
-    "serve": "vue-cli-service serve --watch",
+    "serve": "vue-cli-service serve --watch --hot",
     "build": "vue-cli-service build --dest dist",
     "build-lib": "node build-lib && gulp copyTask",
     "build-resources": "gulp buildResources",
