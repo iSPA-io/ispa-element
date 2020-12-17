@@ -82,9 +82,6 @@ import  { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Form',
-  props: {
-
-  },
   data() {
     return {
       submitted: null,

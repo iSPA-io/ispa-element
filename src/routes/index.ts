@@ -82,7 +82,14 @@ const generateMiscRoutes = function(lang) {
     component: load(lang, '/main'),
   }
 
-  return [indexRoute]
+  const notFoundRoute = {
+    path: `/:pathMatch(.*)*`,
+    meta: { lang },
+    name: 'home-' + lang + '-404',
+    component: load(lang, '/main'),
+  }
+
+  return [indexRoute, notFoundRoute]
 }
 
 route = route.concat(generateMiscRoutes('en'))
@@ -96,7 +103,8 @@ route = route.concat([{
 }])
 
 const router = createRouter({
-  history: createWebHistory('/docs/ispa-element/'),
+  history: createWebHistory(),
+  // history: createWebHistory('/docs/ispa-element/'),
   routes: route,
 })
 
