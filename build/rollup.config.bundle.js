@@ -51,7 +51,7 @@ export default [
           ],
           'exclude': [
             'node_modules',
-            'packages/**/__tests__/*',
+            '__tests__/',
           ],
         },
         abortOnError: false,

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import FormItem from '../src/index.vue'
+import FormItem from '../../form/src/index.vue'
 
 const AXIOM = 'Rem is the best girl'
 

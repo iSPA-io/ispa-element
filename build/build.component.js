@@ -55,7 +55,7 @@ const runBuild = async () => {
             },
             'exclude': [
               'node_modules',
-              '__tests__',
+              '**/__tests__',
             ],
           },
           abortOnError: false,

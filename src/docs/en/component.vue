@@ -50,7 +50,9 @@
           </button>
         </div>
         <main class="ispa-content" tabindex="0">
-          <router-view tag="div" class="content"></router-view>
+          <div class="content">
+            <router-view />
+          </div>
         </main>
       </div>
     </div>

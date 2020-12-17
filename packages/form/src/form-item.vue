@@ -35,8 +35,9 @@ export default defineComponent({
     for: { type: String, default: null },
   },
   setup(props, { attrs, emit, slots }) {
-    const iForm = inject(iForm, {})
+    // const ispaForm = inject('ispaForm')
 
+    // console.log(ispaForm);
 
     return { attrs, slots }
   },

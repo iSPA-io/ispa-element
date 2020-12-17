@@ -6,12 +6,15 @@
       inline ? 'form-inline' : ''
     ]"
   >
-    <slot></slot>
+    <slot name="default"></slot>
   </form>
 </template>
 
 <script lang='ts'>
-import { defineComponent, toRefs, reactive, provide } from 'vue'
+import { defineComponent } from 'vue'
+// , toRefs, reactive, provide
+
+// import mitt from 'mitt'
 
 export default defineComponent({
   name: 'IForm',
@@ -22,12 +25,15 @@ export default defineComponent({
     itemInline: { type: Boolean, default: false },
   },
   setup(props, { attrs, emit }) {
-    const iForm = reactive({
-      ...toRefs(props),
-      emit,
-    })
+    // const formMitt = mitt()
 
-    provide('iForm', iForm)
+    // const IForm = reactive({
+    //   formMitt,
+    //   ...toRefs(props),
+    //   emit,
+    // })
+
+    // provide('ispaForm', IForm)
 
     return { attrs }
   },

@@ -17,7 +17,7 @@ module.exports = {
     extract: false,
   },
   chainWebpack: config => {
-    config.resolve.symlinks(false)
+    // config.resolve.symlinks(false)
 
     config.resolve.extensions
       .clear()

@@ -50,7 +50,7 @@ const config = {
       },
       {
         test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /__tests__/],
         loader: 'babel-loader',
       },
       {
@@ -77,7 +77,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.vue', '.ts', '.tsx', '.js', '.json'],
   },
   externals,
   plugins: [

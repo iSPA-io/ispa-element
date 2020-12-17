@@ -1,7 +1,7 @@
 {
   "name": "ispa-element",
   "private": true,
-  "version": "0.3.3-README",
+  "version": "0.3.4",
   "scripts": {
     "serve": "vue-cli-service serve --watch --hot",
     "build": "vue-cli-service build --dest dist",
@@ -154,7 +154,6 @@
     "core-js": "^3.6.5",
     "dayjs": "1.x",
     "lodash": "^4.17.20",
-    "mitt": "^2.1.0",
     "normalize-wheel": "^1.0.1",
     "resize-observer-polyfill": "^1.5.1"
   },
