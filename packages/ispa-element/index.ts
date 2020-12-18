@@ -4,6 +4,7 @@ import IButton from '@ispa-element/button'
 import IForm from '@ispa-element/form'
 import IFormItem from '@ispa-element/form-item'
 import IInput from '@ispa-element/input'
+import ISwitch from '@ispa-element/switch'
 
 
 import { setConfig } from '@ispa-element/utils/config'
@@ -17,6 +18,7 @@ const defaultInstallOpt: InstallOptions =  {
 const components = [
   IAlert, IButton,
   IInput, IForm, IFormItem,
+  ISwitch,
 ]
 
 const install = (app: App, opt: InstallOptions): void => {
@@ -33,6 +35,7 @@ const install = (app: App, opt: InstallOptions): void => {
 export {
   IAlert, IButton,
   IInput, IForm, IFormItem,
+  ISwitch,
   install,
 }
 

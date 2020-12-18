@@ -28,6 +28,9 @@
 .ispa-content .demo {
   @apply block border rounded p-4;
 }
+.ispa-content .demo *:last-child {
+  @apply mb-0;
+}
 .ispa-content a {
   @apply text-emerald-600;
 }
