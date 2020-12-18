@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import IAlert from '@ispa-element/alert'
 import IButton from '@ispa-element/button'
 import IForm from '@ispa-element/form'
 import IFormItem from '@ispa-element/form-item'
@@ -14,7 +15,7 @@ const defaultInstallOpt: InstallOptions =  {
 }
 
 const components = [
-  IButton,
+  IAlert, IButton,
   IInput, IForm, IFormItem,
 ]
 
@@ -30,7 +31,7 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-  IButton,
+  IAlert, IButton,
   IInput, IForm, IFormItem,
   install,
 }

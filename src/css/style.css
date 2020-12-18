@@ -29,7 +29,7 @@
   @apply block border rounded p-4;
 }
 .ispa-content a {
-  @apply text-emerald-600 !important;
+  @apply text-emerald-600;
 }
 .ispa-content p {
   @apply mb-2;
@@ -38,10 +38,13 @@
   @apply py-6 max-w-4xl mx-auto px-4 sm:px-6 md:px-8;
 }
 .ispa-code {
-  @apply my-5 rounded-md !important;
+  @apply mb-5 rounded-md !important;
 }
 .ispa-code code {
   @apply block text-sm !important;
+}
+.ispa-code + h2 {
+  @apply mt-12;
 }
 
 .tips {

@@ -33,3 +33,4 @@ public
 docs
 tests
 node_modules
+__tests__

@@ -6,7 +6,7 @@
     },
     {
       "name": "Form / Input Components",
-      "checked": false
+      "checked": true
     },
     {
       "name": "Card Components",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Alert Components",
-      "checked": false
+      "checked": true
     },
     {
       "name": "Badge Components",

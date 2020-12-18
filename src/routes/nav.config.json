@@ -8,6 +8,10 @@
       "name": "Basic",
       "children": [
         {
+          "path": "/alert",
+          "name": "Alert"
+        },
+        {
           "path": "/button",
           "name": "Button"
         }
