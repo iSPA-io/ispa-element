@@ -60,15 +60,16 @@ Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#
 
 ## Milestone
 
-- [x] Button Component (2020-12-09)
-- [x] Form/Input Component (2020-12-16)
 - [ ] Card Component
 - [ ] Loading Component/Directives
 - [ ] Dropdown Component
-- [x] Alert Component (2020-12-18)
 - [ ] Badge Component
 - [ ] Nav/Tabs Component
 - [ ] Progress bar Component
+- [x] Switch Component (2020-12-20)
+- [x] Alert Component (2020-12-18)
+- [x] Form/Input Component (2020-12-16)
+- [x] Button Component (2020-12-09)
 
 ## CHANGELOG
 You can follow Change Logs by click [here (CHANGELOG.md)](CHANGELOG.md)

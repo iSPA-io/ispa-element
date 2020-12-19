@@ -87,7 +87,7 @@
         <td style="text-align: left;"><code>text</code></td>
       </tr>
       <tr>
-        <td style="text-align: left;">model-value</td>
+        <td style="text-align: left;">model-value / v-model</td>
         <td style="text-align: left;">input binding value</td>
         <td style="text-align: left;">string / number</td>
         <td style="text-align: left;">—</td>
