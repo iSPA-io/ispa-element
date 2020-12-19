@@ -28,7 +28,7 @@ router.isReady().then(() => {
 
   router.afterEach(async route => {
     await nextTick()
-    document.title = (route.meta.title ? route.meta.title + ' | ' : '') + 'iSPA Element UI'
+    document.title = (route.meta.title ? route.meta.title + ' - ' : '') + 'iSPA Element UI'
   })
 
 })

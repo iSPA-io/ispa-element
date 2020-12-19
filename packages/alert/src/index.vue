@@ -115,7 +115,6 @@ export default defineComponent({
   setup(props, { attrs, slots, emit }) {
     const showAlert = ref(props.show || false)
 
-
     const dismissAble = evt => {
       showAlert.value = false
       emit('close', evt)

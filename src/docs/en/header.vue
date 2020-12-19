@@ -18,6 +18,7 @@
                 <i class="fa fa-search"></i>
               </div>
               <input
+                disabled
                 id="search"
                 name="search"
                 class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-300 bg-opacity-25 text-cyan-100 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm"
