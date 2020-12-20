@@ -1,5 +1,5 @@
 <template>
-  <div class="i-switch" :class="[(title || desc) ? 'flex' : 'inline-flex']" v-bind="attrs">
+  <div class="i-switch" :class="[(title || desc) ? 'is-flex' : 'is-inline']" v-bind="attrs">
     <span v-if="title || desc" :class="['switch-text', float]">
       <span v-if="title" class="switch-text-title">{{ title }}</span>
       <span v-if="desc" class="switch-text-desc">{{ desc }}</span>
@@ -11,7 +11,7 @@
       :class="[
         'i-' + (checked ? colorOn : colorOff),
         size ? 'is-' + size : '',
-        (!textOn && !textOff) ? 'mr-auto': ''
+        (!textOn && !textOff) ? 'no-text': ''
       ]"
       :disabled="disabled"
       @click.prevent="handleChange($event, !checked)"
@@ -22,15 +22,15 @@
         <template v-if="showIcon">
           <!-- Off Icon -->
           <span class="switch-icon" aria-hidden="true" :class="[checked ? 'is-off' : 'is-on']">
-            <i v-if="iconOff" :class="[iconOff, size && size === 'big' ? 'h-4 w-4' : 'h-3 w-3']"></i>
-            <svg v-else :class="[size && size === 'big' ? 'h-4 w-4' : 'h-3 w-3']" fill="none" viewBox="0 0 12 12">
+            <i v-if="iconOff" :class="[iconOff]"></i>
+            <svg v-else fill="none" viewBox="0 0 12 12">
               <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </span>
           <!-- On Icon -->
           <span class="switch-icon" aria-hidden="true" :class="[!checked ? 'is-off' : 'is-on']">
-            <i v-if="iconOn" :class="[iconOn, size && size === 'big' ? 'h-4 w-4' : 'h-3 w-3']"></i>
-            <svg v-else :class="[size && size === 'big' ? 'h-4 w-4' : 'h-3 w-3']" fill="currentColor" viewBox="0 0 12 12">
+            <i v-if="iconOn" :class="[iconOn]"></i>
+            <svg v-else fill="currentColor" viewBox="0 0 12 12">
               <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
             </svg>
           </span>
@@ -130,8 +130,14 @@ export default defineComponent({
 .i-switch {
   @apply items-center justify-between;
 }
+.i-switch.is-flex {
+  @apply flex;
+}
+.i-switch.is-inline {
+  @apply inline-flex;
+}
 .i-switch button {
-  @apply relative inline-flex flex-shrink h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200
+  @apply relative inline-flex flex-shrink h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 p-0
   focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-blue-300
   disabled:opacity-50;
 }
@@ -144,6 +150,9 @@ export default defineComponent({
 .i-switch button .switch-circle .switch-icon {
   @apply absolute inset-0 h-full w-full flex items-center justify-center transition-opacity;
 }
+.i-switch button .switch-circle .switch-icon svg {
+  @apply h-3 w-3;
+}
 .switch-icon.is-on {
   @apply opacity-100 ease-in duration-200;
 }
@@ -154,11 +163,14 @@ export default defineComponent({
 .i-switch button.is-small {
   @apply h-5 w-10 group flex-shrink-0 items-center !important;
 }
+.i-switch button.no-text {
+  @apply mr-auto;
+}
 .i-switch button.is-small {
   @apply bg-transparent !important;
 }
 .i-switch button.is-small .switch-circle {
-  @apply left-0 inline-block h-5 w-5 border border-gray-200 transition-transform !important;
+  @apply left-0 inline-block h-5 w-5 border shadow border-gray-200 transition-transform !important;
 }
 .i-switch button.is-small .small-bg {
   @apply absolute h-4 w-9 mx-auto rounded-full transition-colors ease-in-out duration-200;

@@ -37,6 +37,24 @@
           "name": "Switch"
         }
       ]
+    },
+    {
+      "name": "Navigation",
+      "children": [
+        {
+          "path": "/dropdown",
+          "name": "Dropdown"
+        }
+      ]
+    },
+    {
+      "name": "Advanced",
+      "children": [
+        {
+          "path": "/divider",
+          "name": "Divider"
+        }
+      ]
     }
   ],
   "vi": [

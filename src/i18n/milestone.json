@@ -35,6 +35,10 @@
     {
       "name": "Loading Components/Directives",
       "checked": false
+    },
+    {
+      "name": "Switch Components",
+      "checked": true
     }
   ]
 }
