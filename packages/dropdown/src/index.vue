@@ -9,7 +9,7 @@
       </i-button>
     </div>
     <transition name="dismiss">
-      <div v-if="show" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+      <div v-if="show" class="origin-bottom absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
         <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Account settings</a>
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Support</a>
@@ -27,11 +27,13 @@
 
 <script lang='ts'>
 import { defineComponent, ref } from 'vue'
+import type { PropType } from 'vue'
 
 export default defineComponent({
   name: 'IDropdown',
   props: {
-
+    /** Align of dropdown */
+    align: { type: String as PropType<'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'>, default: 'top-right' },
   },
   setup(props) {
     const show = ref(false)

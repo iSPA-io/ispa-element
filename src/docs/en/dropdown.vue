@@ -10,8 +10,9 @@
 
 
   <h2>Basic Usage</h2>
+  <div class="h-64"></div>
   <div class="demo">
-    <i-dropdown></i-dropdown> 
+    <i-dropdown />
   </div>
 </template>
 

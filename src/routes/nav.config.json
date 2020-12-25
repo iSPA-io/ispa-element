@@ -41,10 +41,6 @@
     {
       "name": "Navigation",
       "children": [
-        {
-          "path": "/dropdown",
-          "name": "Dropdown"
-        }
       ]
     },
     {

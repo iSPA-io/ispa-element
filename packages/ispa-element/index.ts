@@ -8,7 +8,7 @@ import IFormItem from '@ispa-element/form-item'
 import IInput from '@ispa-element/input'
 import ISwitch from '@ispa-element/switch'
 //  Navigation
-import IDropdown from '@ispa-element/dropdown'
+// import IDropdown from '@ispa-element/dropdown'
 //  Advanced
 import IDivider from '@ispa-element/divider'
 
@@ -23,7 +23,7 @@ const defaultInstallOpt: InstallOptions =  {
 const components = [
   IAlert, IButton,
   IInput, IForm, IFormItem, ISwitch,
-  IDropdown,
+  // IDropdown,
   IDivider,
 ]
 
@@ -41,7 +41,7 @@ const install = (app: App, opt: InstallOptions): void => {
 export {
   IAlert, IButton,
   IInput, IForm, IFormItem, ISwitch,
-  IDropdown,
+  // IDropdown,
   IDivider,
   install,
 }
