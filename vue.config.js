@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
@@ -12,6 +13,13 @@ module.exports = {
         poll: true,
       },
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.tpl',
+        filename: './index.html',
+        favicon: './src/logo-square.png',
+      }),
+    ],
   },
   css: {
     extract: false,

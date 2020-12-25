@@ -67,9 +67,9 @@
   <h2>Label and special Input style</h2>
   <div class="demo">
     <i-switch v-model="form.demo2" show-icon class="mr-2" title="Available to hire" desc="Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia." />
-    <hr class="my-4">
+    <i-divider />
     <i-switch v-model="form.demo2" show-icon class="max-w-xl mx-auto" title="Available to hire" desc="Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia." float="right" />
-    <hr class="my-4">
+    <i-divider />
     <i-switch v-model="form.demo2" show-icon class="mr-2" title="Available to hire" desc="Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia." text-on="Enable" text-off="Disable" />
   </div>
   <pre class="ispa-code language-html"><code>{{`//  Special title and descriptions with float=left

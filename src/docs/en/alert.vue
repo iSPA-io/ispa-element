@@ -114,8 +114,12 @@
       <span v-if="closedStt" class="text-cyan-500"> (done) </span>
     </i-button>
 
-    <div v-if="!closeStatusDemo" class="block border-b border-gray-500 pb-3 mb-4">Alert will auto close after 5 second. Status: <b class="text-cyan-500">{{ closedStt ? 'true' : 'false' }}</b></div>
-    <i-alert :show="alertShow" :auto-dismiss="autoDismiss" type="danger" @close="closedStatus">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.</i-alert>
+    <div v-if="!closeStatusDemo" class="block border-b border-gray-500 pb-3 mb-4">
+      Alert will auto close after 5 second.
+      Auto Dismiss: <b class="text-cyan-500">{{ autoDismiss ? 'true' : 'false' }}</b>
+      Alert show: <b class="text-red-500">{{ alertShow ? 'true' : 'false' }}</b>
+    </div>
+    <i-alert v-model="alertShow" :auto-dismiss="autoDismiss" type="danger" @close="closedStatus">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.</i-alert>
   </div>
   <pre class="ispa-code language-html"><code>{{`<i-alert dismiss>Show dismiss button.</i-alert>
 <i-alert dismiss auto-dismiss>Auto dismiss after 5 seconds.</i-alert>`}}</code></pre>
@@ -167,7 +171,7 @@
         <td style="text-align: left;"><code>default</code></td>
       </tr>
       <tr>
-        <td style="text-align: left;">show</td>
+        <td style="text-align: left;">v-model</td>
         <td style="text-align: left;">alert showing status</td>
         <td style="text-align: left;">boolean</td>
         <td style="text-align: left;">—</td>
@@ -321,16 +325,16 @@ export default {
     closedStatus() {
       this.closedStt = true
 
-      setTimeout(() => {
-        this.closeStatusDemo = true
-      }, 5000)
+      // setTimeout(() => {
+      //   this.closeStatusDemo = true
+      // }, 5000)
     },
     closeAlert() {
       this.closeStatus = 'Closed'
 
-      setTimeout(() => {
-        this.closeStatus = null
-      }, 3000)
+      // setTimeout(() => {
+      //   this.closeStatus = null
+      // }, 3000)
     },
   },
 })

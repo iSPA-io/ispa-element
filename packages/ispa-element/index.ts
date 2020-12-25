@@ -1,11 +1,16 @@
 import type { App } from 'vue'
+//  Basic
 import IAlert from '@ispa-element/alert'
 import IButton from '@ispa-element/button'
+//  Form - input
 import IForm from '@ispa-element/form'
 import IFormItem from '@ispa-element/form-item'
 import IInput from '@ispa-element/input'
 import ISwitch from '@ispa-element/switch'
-
+//  Navigation
+// import IDropdown from '@ispa-element/dropdown'
+//  Advanced
+import IDivider from '@ispa-element/divider'
 
 import { setConfig } from '@ispa-element/utils/config'
 import type { InstallOptions } from '@ispa-element/utils/config'
@@ -17,8 +22,9 @@ const defaultInstallOpt: InstallOptions =  {
 
 const components = [
   IAlert, IButton,
-  IInput, IForm, IFormItem,
-  ISwitch,
+  IInput, IForm, IFormItem, ISwitch,
+  // IDropdown,
+  IDivider,
 ]
 
 const install = (app: App, opt: InstallOptions): void => {
@@ -34,8 +40,9 @@ const install = (app: App, opt: InstallOptions): void => {
 
 export {
   IAlert, IButton,
-  IInput, IForm, IFormItem,
-  ISwitch,
+  IInput, IForm, IFormItem, ISwitch,
+  // IDropdown,
+  IDivider,
   install,
 }
 

@@ -37,6 +37,20 @@
           "name": "Switch"
         }
       ]
+    },
+    {
+      "name": "Navigation",
+      "children": [
+      ]
+    },
+    {
+      "name": "Advanced",
+      "children": [
+        {
+          "path": "/divider",
+          "name": "Divider"
+        }
+      ]
     }
   ],
   "vi": [

@@ -42,6 +42,7 @@ type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info
 
 export default defineComponent({
   name: 'IButton',
+  inheritAttrs: false,
   props: {
     /** Button type (class name) */
     type: {
@@ -105,7 +106,7 @@ export default defineComponent({
 
 <style>
 .btn {
-  @apply border transition px-4 py-2 rounded font-medium text-sm
+  @apply border border-solid cursor-pointer transition px-4 py-2 rounded font-medium text-sm
   focus:outline-none;
 }
 
