@@ -11,7 +11,7 @@
 
   <h2>Basic Usage</h2>
   <div class="demo">
-    <i-dropdown></i-dropdown>
+    <i-dropdown></i-dropdown> 
   </div>
 </template>
 

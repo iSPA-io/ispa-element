@@ -76,13 +76,13 @@
 </template>
 
 <script lang='ts'>
-import { ref, defineComponent, watchEffect } from 'vue'
+import { ref, defineComponent, watchEffect, onUpdated } from 'vue'
 
 export default defineComponent({
   name: 'IAlert',
   props: {
     /** Showing status */
-    show: { type: Boolean, default: true },
+    modelValue: { type: Boolean, default: true },
     /** Alert type */
     type: { type: String, default: 'default' },
     /** Title of Alert */
@@ -103,12 +103,13 @@ export default defineComponent({
     /** No ICON */
     noIcon: { type: Boolean, default: false },
   },
-  emits: ['close'],
+  emits: ['close', 'update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const showAlert = ref(props.show || false)
+    const showAlert = ref(props.modelValue)
 
     const dismissAble = evt => {
       showAlert.value = false
+      emit('update:modelValue', showAlert.value)
       emit('close', evt)
     }
 
@@ -116,6 +117,10 @@ export default defineComponent({
       if (props.autoDismiss && showAlert.value === true) {
         setTimeout(dismissAble, 5000)
       }
+    })
+
+    onUpdated(() => {
+      showAlert.value = props.modelValue
     })
 
     return { attrs, slots, showAlert, dismissAble }

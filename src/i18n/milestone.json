@@ -1,43 +1,47 @@
 {
   "en": [
     {
-      "name": "Button Components",
+      "name": "Card Component",
+      "checked": false
+    },
+    {
+      "name": "Badge Component",
+      "checked": false
+    },
+    {
+      "name": "Nav / Tabs Component",
+      "checked": false
+    },
+    {
+      "name": "Progress Component",
+      "checked": false
+    },
+    {
+      "name": "Loading Component/Directive",
+      "checked": false
+    },
+    {
+      "name": "Dropdown Component",
+      "checked": false
+    },
+    {
+      "name": "Divider Component",
       "checked": true
     },
     {
-      "name": "Form / Input Components",
+      "name": "Alert Component",
       "checked": true
     },
     {
-      "name": "Card Components",
-      "checked": false
-    },
-    {
-      "name": "Dropdown Components",
-      "checked": false
-    },
-    {
-      "name": "Alert Components",
+      "name": "Button Component",
       "checked": true
     },
     {
-      "name": "Badge Components",
-      "checked": false
+      "name": "Form / Input Component",
+      "checked": true
     },
     {
-      "name": "Nav / Tabs Components",
-      "checked": false
-    },
-    {
-      "name": "Progress Components",
-      "checked": false
-    },
-    {
-      "name": "Loading Components/Directives",
-      "checked": false
-    },
-    {
-      "name": "Switch Components",
+      "name": "Switch Component",
       "checked": true
     }
   ]

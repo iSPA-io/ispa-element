@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const libMode = process.env.LIBMODE
@@ -83,6 +84,11 @@ const config = {
   plugins: [
     new VueLoaderPlugin(),
     // new BundleAnalyzerPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.tpl',
+      filename: './index.html',
+      favicon: './src/logo-square.png',
+    }),
   ],
 }
 

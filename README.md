@@ -62,10 +62,11 @@ Thanks for amazing library [PrimeVue](https://primefaces.org/primevue/showcase/#
 
 - [ ] Card Component
 - [ ] Loading Component/Directives
-- [ ] Dropdown Component
 - [ ] Badge Component
 - [ ] Nav/Tabs Component
 - [ ] Progress bar Component
+- [ ] Dropdown Component
+- [x] Divider Component (2020-12-20)
 - [x] Switch Component (2020-12-20)
 - [x] Alert Component (2020-12-18)
 - [x] Form/Input Component (2020-12-16)
@@ -82,11 +83,7 @@ Maintained under the [Semantic Versioning guidelines](https://semver.org/).
 
 [MIT](https://opensource.org/licenses/MIT) © [Malayvuong](https://malayvuong.com/)
 
-## Invite me a cup of coffee
-If you like this project and want to contribute us, then you can send us a cup of coffee by this ways below:
-
-| PAYPAL.ME            | MOMO App (Vietnam) |
-|:--------------------:|:------------------:|
-| <img src="https://ispa.io/docs/assets/qr-code-paypal.png" style="max-width: 100px;" alt="support us"> | <img src="https://ispa.io/docs/assets/qr-code-momo.jpg" style="max-width: 100px;" alt="support us"> |
+## Wanna support?
+If you like this project and want to contribute us, then you can send us an email via malayvuong@gmail.com for more informations.
 
 [⬆ back to top](#)

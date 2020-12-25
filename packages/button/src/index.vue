@@ -42,6 +42,7 @@ type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info
 
 export default defineComponent({
   name: 'IButton',
+  inheritAttrs: false,
   props: {
     /** Button type (class name) */
     type: {

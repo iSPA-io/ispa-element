@@ -25,7 +25,7 @@
   </div>
 
   <h2>Special Thanks</h2>
-  <p>Thanks for amazing library <a href="https://primefaces.org/primevue/showcase/#/" target="_blank" rel="noopener noreferrer">PrimeVue</a> and <a href="https://element.eleme.io/" target="_blank" rel="noopener noreferrer">Element UI</a>, our first version has been inspired from these library. Some our code has been modified from a part of these projects.</p>
+  <p>Thanks for amazing library <a href="https://primefaces.org/primevue/showcase/#/" target="_blank" rel="noopener noreferrer">PrimeVue</a> and <a href="https://element.eleme.io/" target="_blank" rel="noopener noreferrer">Element UI</a>, our very first version has been inspired from these library. Some our code has been modified from a part of these projects.</p>
 
   <h2>Milestone</h2>
   <ul>
@@ -42,9 +42,8 @@
   <h2>License</h2>
   <p><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a> © <a href="https://github.com/malayvuong" rel="noopener noreferrer">Malayvuong</a></p>
 
-  <h2>Invite us a cup of coffee</h2>
-  <p>If you like this project and want to contribute us, then you can send us a cup of coffee by this ways below:</p>
-  <table><thead><tr><th style="text-align: center;">PAYPAL.ME</th> <th style="text-align: center;">MOMO App (Vietnam)</th></tr></thead> <tbody><tr><td style="text-align: center;"><img src="https://ispa.io/docs/assets/qr-code-paypal.png" alt="support us" style="max-width: 200px;"></td> <td style="text-align: center;"><img src="https://ispa.io/docs/assets/qr-code-momo.jpg" alt="support us" style="max-width: 200px;"></td></tr></tbody></table>
+  <h2>Wanna support?</h2>
+  <p>If you like this project and want to contribute us, then you can send us an email via malayvuong@gmail.com for more informations.</p>
 </template>
 
 <script>

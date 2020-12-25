@@ -1,10 +1,10 @@
 <template>
   <div
     class="input-group"
-    :style="attrs.style"
+    :style="attributes.style"
     :class="[
       $slots.prepend || $slots.append ? 'flex' : '',
-      attrs.class,
+      attributes.class,
       disabled ? 'is-disabled' : '',
     ]"
   >
@@ -21,7 +21,7 @@
       <i :class="icon"></i>
     </div>
     <input
-      :id="attrs.id || id"
+      :id="attributes.id || id"
       ref="input"
       v-model="nativeInputValue"
       :name="name"
@@ -82,6 +82,7 @@ import { isValidAlign, isValidInputType } from '@ispa-element/utils/validators'
 
 export default defineComponent({
   name: 'IInput',
+  inheritAttrs: false,
   props: {
     /** Model value (v-model) */
     modelValue: {
@@ -120,11 +121,11 @@ export default defineComponent({
     required: { type: Boolean, default: false },
   },
   emits: ['update:modelValue', 'input', 'change', 'focus', 'blur'],
-  setup(props, ctx) {
+  setup(props, { emit, attrs }) {
     /** Return this instance DOM */
     const instance = getCurrentInstance()
     /** Return button attributes and bind to */
-    const attrs = ctx.attrs
+    const attributes = attrs
     /** Composing status */
     const isComposing = ref(false)
     /** Focus status */
@@ -186,8 +187,8 @@ export default defineComponent({
       // should remove the following line when we don't support IE
       if (value === nativeInputValue.value) return
 
-      ctx.emit('update:modelValue', value)
-      ctx.emit('input', value)
+      emit('update:modelValue', value)
+      emit('input', value)
 
       // ensure native input value is controlled
       // see: https://github.com/ElemeFE/element/issues/12850
@@ -195,7 +196,7 @@ export default defineComponent({
     }
     /** Handle change */
     const handleChange = event => {
-      ctx.emit('change', event.target.value)
+      emit('change', event.target.value)
     }
 
     const focus = () => {
@@ -211,12 +212,12 @@ export default defineComponent({
 
     const handleFocus = event => {
       focused.value = true
-      ctx.emit('focus', event)
+      emit('focus', event)
     }
 
     const handleBlur = event => {
       focused.value = false
-      ctx.emit('blur', event)
+      emit('blur', event)
     }
 
     const select = () => {
@@ -257,7 +258,7 @@ export default defineComponent({
     return {
       nativeInputValue,
       isRequired,
-      attrs,
+      attributes,
       handleInput,
       handleChange,
       handleFocus,

@@ -2,10 +2,12 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-#### --- Version 0.7.0
+#### --- Version 0.7.13
 This version update:
 * Added new element `divider`, `dropdown`
-* Fixed style of `alert`, `button`, `switch` (no need to required TailwindCss)
+* Fixed style of `alert`, `button`, `switch` (no need to required TailwindCss after install)
+* Changed attribute from `show` to `v-model` of `Alert` component and fixed auto-dismiss update modelValue
+* Fixed `button` and `input` inherit Attributes
 
 #### --- Version 0.5.0
 This version update:
