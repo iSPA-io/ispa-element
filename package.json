@@ -17,7 +17,7 @@
     "gen:version": "node build/gen-version.js",
     "y-prod": "yarn yarn:bt && yarn clean:lib && yarn build:esm-bundle && yarn build:lib && yarn build:lib-full && yarn build:esm && yarn build:utils",
     "link": "npx lerna bootstrap",
-    "prod": "npm run link && npm run clean:lib && npm run build:esm-bundle && npm run build:lib && npm run build:lib-full && npm run build:esm && npm run build:utils",
+    "prod": "npm run link && yarn gen:version && npm run clean:lib && npm run build:esm-bundle && npm run build:lib && npm run build:lib-full && npm run build:esm && npm run build:utils",
     "clean:lib": "rimraf lib",
     "build:lib": "cross-env LIBMODE=core webpack --config ./build/webpack.config.js",
     "build:lib-full": "cross-env LIBMODE=full webpack --config ./build/webpack.config.js",
