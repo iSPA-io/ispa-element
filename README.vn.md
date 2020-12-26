@@ -62,10 +62,10 @@ Chúng tôi xin gửi lời cảm ơn đến thư viện [PrimeVue](https://prim
 
 - [ ] Card Component
 - [ ] Loading Component/Directives
-- [ ] Badge Component
 - [ ] Nav/Tabs Component
 - [ ] Progress bar Component
 - [ ] Dropdown Component
+- [x] Badge Component (2020-12-26)
 - [x] Divider Component (2020-12-20)
 - [x] Switch Component (2020-12-20)
 - [x] Alert Component (2020-12-18)

@@ -24,7 +24,7 @@ export default defineComponent({
     /** Item display inline */
     itemInline: { type: Boolean, default: false },
   },
-  setup(props, { attrs, emit }) {
+  setup(props, { attrs }) {
     // const formMitt = mitt()
 
     // const IForm = reactive({
