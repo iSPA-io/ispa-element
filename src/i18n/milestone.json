@@ -5,10 +5,6 @@
       "checked": false
     },
     {
-      "name": "Badge Component",
-      "checked": false
-    },
-    {
       "name": "Nav / Tabs Component",
       "checked": false
     },
@@ -23,6 +19,10 @@
     {
       "name": "Dropdown Component",
       "checked": false
+    },
+    {
+      "name": "Badge Component",
+      "checked": true
     },
     {
       "name": "Divider Component",

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { defineComponent, inject } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'IFormItem',
@@ -34,7 +34,7 @@ export default defineComponent({
     /** Label for */
     for: { type: String, default: null },
   },
-  setup(props, { attrs, emit, slots }) {
+  setup(props, { attrs, slots }) {
     // const ispaForm = inject('ispaForm')
 
     // console.log(ispaForm);

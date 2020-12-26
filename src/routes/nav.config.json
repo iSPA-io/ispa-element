@@ -12,6 +12,10 @@
           "name": "Alert"
         },
         {
+          "path": "/badge",
+          "name": "Badge"
+        },
+        {
           "path": "/button",
           "name": "Button"
         }

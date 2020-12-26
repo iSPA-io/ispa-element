@@ -2,6 +2,7 @@ import type { App } from 'vue'
 //  Basic
 import IAlert from '@ispa-element/alert'
 import IButton from '@ispa-element/button'
+import IBadge from '@ispa-element/badge'
 //  Form - input
 import IForm from '@ispa-element/form'
 import IFormItem from '@ispa-element/form-item'
@@ -21,7 +22,7 @@ const defaultInstallOpt: InstallOptions =  {
 }
 
 const components = [
-  IAlert, IButton,
+  IAlert, IButton, IBadge,
   IInput, IForm, IFormItem, ISwitch,
   // IDropdown,
   IDivider,
@@ -39,7 +40,7 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-  IAlert, IButton,
+  IAlert, IButton, IBadge,
   IInput, IForm, IFormItem, ISwitch,
   // IDropdown,
   IDivider,
