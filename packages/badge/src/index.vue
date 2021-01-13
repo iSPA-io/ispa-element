@@ -56,7 +56,7 @@ export default defineComponent({
 
 <style>
 .i-badge {
-  @apply border-solid relative inline-flex items-center rounded-full border border-transparent px-3 py-0.5 text-sm font-medium;
+  @apply bg-white border-solid relative inline-flex items-center rounded-full border border-transparent px-3 py-0.5 text-sm font-medium;
 }
 .i-badge.i-sm {
   @apply px-2 py-0;

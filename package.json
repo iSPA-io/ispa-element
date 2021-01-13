@@ -1,7 +1,7 @@
 {
   "name": "ispa-element",
   "private": false,
-  "version": "0.7.0",
+  "version": "0.7.2",
   "scripts": {
     "serve": "vue-cli-service serve --watch --hot",
     "build": "vue-cli-service build --dest dist",
@@ -29,8 +29,6 @@
     "build:locale-umd": "node ./build/build-locale.js",
     "lint:es": "eslint ./packages --ext .vue,.js,.ts",
     "lint-fix": "eslint --fix ./packages --ext .vue,.js,.ts",
-    "web-build": "rimraf web-dist && cross-env NODE_ENV=production webpack --config ./web/webpack.config.js",
-    "web-dev": "webpack-dev-server --config ./web/webpack.config.js",
     "upgrade:vue": "bash ./scripts/update-versions.sh"
   },
   "peerDependencies": {
@@ -176,7 +174,7 @@
   "description": "A Component Library for VueJs (Vue 3) base on Tailwind Css.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/malayvuong/ispa-element.git"
+    "url": "git+https://github.com/iSPA-io/ispa-element.git"
   },
   "keywords": [
     "ispa-element",
@@ -186,9 +184,9 @@
   "author": "malayvuong <malayvuong@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/malayvuong/ispa-element/issues"
+    "url": "https://github.com/iSPA-io/ispa-element/issues"
   },
-  "homepage": "https://github.com/malayvuong/ispa-element#readme",
+  "homepage": "https://github.com/iSPA-io/ispa-element#readme",
   "eslintConfig": {
     "root": true,
     "env": {

@@ -2,6 +2,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+#### --- Version 0.7.3
+This version update:
+* Added new element `badge`s
+* Fixed badge default background set from `transparent` to `white`
+* Added new type of Button `Help (indigo color)`
+* Change Css Style with 2 button placed next to each other
+
 #### --- Version 0.6.13
 This version update:
 * Added new element `divider`

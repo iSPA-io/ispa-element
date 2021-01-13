@@ -5,7 +5,6 @@ Một Thư viện hoạt động trên VueJS bản 3.x dựa trên TailwindCss.
 <p align="center">
   <a href="https://npmcharts.com/compare/ispa-element?minimal=true" target="_blank"><img src="https://img.shields.io/npm/dm/ispa-element.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/ispa-element" target="_blank"><img src="https://img.shields.io/npm/v/ispa-element.svg?sanitize=true" alt="Version"></a>
-  <a href="https://m.me/malayvuong" target="_blank"><img src="https://img.shields.io/badge/chat-messenger-green" alt="Chat"></a>
   <a href="https://lerna.js.org/" target="_blank"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="lerna"></a>
 </p>
 

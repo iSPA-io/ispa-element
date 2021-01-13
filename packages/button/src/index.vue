@@ -7,7 +7,7 @@
   >
     <button
       v-bind="attrs"
-      type="button"
+      :type="buttonType"
       :class="[
         `btn btn-${type || 'default'}${plain ? '-outline' : ''}`,
         buttonSize ? `btn-${buttonSize}` : '',
@@ -44,13 +44,20 @@ export default defineComponent({
   name: 'IButton',
   inheritAttrs: false,
   props: {
+    /** Button type (type of button) */
+    buttonType: {
+      type: String, default: 'button',
+      validator: (val: string) => {
+        return ['button', 'submit', 'reset'].includes(val)
+      },
+    },
     /** Button type (class name) */
     type: {
       type: String as IButtonType,
       default: 'default',
       validator: (val: string) => {
         return ['default', 'danger', 'success', 'info',
-          'primary', 'warning', 'secondary'].includes(val)
+          'primary', 'warning', 'secondary', 'help'].includes(val)
       },
     },
     /** Button size */
@@ -187,13 +194,24 @@ export default defineComponent({
   focus:bg-rose-100;
 }
 
+.btn-help {
+  @apply text-white bg-indigo-500 border-indigo-500
+  hover:bg-indigo-400
+  focus:bg-indigo-400;
+}
+.btn-help-outline {
+  @apply text-indigo-600 border-indigo-300 bg-indigo-50
+  hover:text-white hover:bg-indigo-500 hover:border-indigo-500
+  focus:bg-indigo-100;
+}
+
 .btn-disabled {
   @apply opacity-50 pointer-events-none;
 }
 .is-disabled {
   @apply cursor-not-allowed;
 }
-
+/** Size button */
 .btn-xs {
   @apply py-1 px-2 text-xs font-normal !important;
 }
@@ -221,5 +239,31 @@ export default defineComponent({
 }
 .btn-circle {
   @apply rounded-full !important;
+}
+/** Auto margin when next */
+span.inline-block + span.inline-block {
+  @apply ml-2;
+}
+/** Text button */
+button.btn.text {
+  @apply border-transparent bg-transparent hover:bg-transparent !important;
+}
+button.btn.text.btn-success {
+  @apply text-green-600 !important;
+}
+button.btn.text.btn-info {
+  @apply text-lightBlue-600 !important;
+}
+button.btn.text.btn-primary {
+  @apply text-blue-600 !important;
+}
+button.btn.text.btn-warning {
+  @apply text-yellow-600 !important;
+}
+button.btn.text.btn-danger {
+  @apply text-red-600 !important;
+}
+button.btn.text.btn-help {
+  @apply text-indigo-600 !important;
 }
 </style>
