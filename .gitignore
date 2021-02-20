@@ -11,7 +11,6 @@ node_modules
 /libpeerconnection.log
 npm-debug.log
 testem.log
-/typings
 
 # local env files
 .env.local
