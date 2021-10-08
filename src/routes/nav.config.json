@@ -43,16 +43,20 @@
       ]
     },
     {
-      "name": "Navigation",
-      "children": [
-      ]
-    },
-    {
       "name": "Advanced",
       "children": [
         {
           "path": "/divider",
           "name": "Divider"
+        }
+      ]
+    },
+    {
+      "name": "Notice",
+      "children": [
+        {
+          "path": "/modal",
+          "name": "Modal Dialog"
         }
       ]
     }

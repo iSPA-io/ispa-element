@@ -16,7 +16,7 @@ const ErrorComponent = {
 
 const load = function(lang, path) {
   return defineAsyncComponent({
-    loader: () => import(/* webpackChunkName: "EN" */`../docs/${lang}${path}.vue`),
+    loader: () => import(/* webpackChunkName: "EN" */`@/docs/${lang}${path}.vue`),
     delay: 0,
     timeout: 30000,
     errorComponent: ErrorComponent,

@@ -1,6 +1,6 @@
 {
   "name": "ispa-element",
-  "private": false,
+  "private": true,
   "version": "0.7.2",
   "scripts": {
     "serve": "vue-cli-service serve --watch --hot",
@@ -63,7 +63,7 @@
     "algoliasearch": "^4.4.0",
     "async-validator": "^3.4.0",
     "autoprefixer": "^9.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.2.2",

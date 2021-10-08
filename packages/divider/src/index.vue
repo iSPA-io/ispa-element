@@ -38,16 +38,16 @@ export default defineComponent({
 
 <style>
 .i-divider {
-  @apply relative my-4;
+  @apply relative;
 }
 .i-divider .i-divider-line {
   @apply absolute inset-0 flex items-center;
 }
 .i-divider .i-divider-line > div {
-  @apply w-full border-l-0 border-r-0 border-b-0 border-t border-solid border-gray-300;
+  @apply w-full border-t border-gray-300 border-l-0 border-r-0 border-b-0 border-solid;
 }
 .i-divider .i-divider-content {
-  @apply relative flex text-sm;
+  @apply relative flex text-sm justify-center;
 }
 .i-divider .i-divider-content > span {
   @apply mx-3 px-2 bg-white text-gray-500;
